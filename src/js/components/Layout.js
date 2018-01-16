@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { Component } from "react";
 import Header from './Header';
 import Footer from './Footer';
 
-export default class Layout extends React.Component {
+export default class Layout extends Component {
     constructor(){
         super();
     }
     render(){
         return(
             <div>
-                <Header />
-                <Footer />
+                <Header class="row"/>
+                <Footer class="row"/>
             </div>
         );
     };
