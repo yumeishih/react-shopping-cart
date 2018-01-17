@@ -1,14 +1,15 @@
 header{
     background: $blue-green;
-    position: fixed;
     width: 100%;
     height: 70px;
     padding-left: 10px;
-    display:inline-block;
+    display:inline-flex;
+    position:fixed;
+    flex-wrap: nowrap;
+    justify-content: space-between;
     .myCart{
         width: 70px;
         height: 70px;
         padding: 10px;
-        float: right;
     }
 }

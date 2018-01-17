@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from './Header';
 import Footer from './Footer';
+import Content from './Content';
 
 export default class Layout extends Component {
     constructor(){
@@ -9,8 +10,9 @@ export default class Layout extends Component {
     render(){
         return(
             <div>
-                <Header class="row"/>
-                <Footer class="row"/>
+                <Header />
+                <Content />
+                <Footer />
             </div>
         );
     };
