@@ -1,5 +1,5 @@
 import React,{ Component} from "react"
-
+import Counter from "./Counter"
 
 export default class Item extends Component{
     render(){
@@ -11,7 +11,9 @@ export default class Item extends Component{
                     <h4>{item.itemName}</h4>
                     <p>{item.describe}</p>
                     <p>Price: {item.price}</p>
+                    <Counter  />
                 </div>
+
             </div>
         );
     };

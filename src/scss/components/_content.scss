@@ -22,6 +22,44 @@
         padding: 15px;
         text-align: center;
     }
+    .stepper-input{
+        display: flex;
+        color: $gray-medium;
+        max-width: 120px;
+        margin: 0 auto;
+        .increment, .decrement{
+            height: 30px;
+            width: 30px;
+            text-align: center;
+            color: inherit;
+            font-size: 30px;
+            line-height: 22px;
+            &:hover{
+                color: pink;
+                border-color: pink;
+                background: $light-2-green;
+
+            }
+            &:active{
+                color: $light-2-green;
+                border-color: pink;
+                background: lighten(pink, 15%);
+            }
+        }
+        .quantity{
+            height: 24px;
+            width: 48px;
+            text-align: center;
+            margin: 0 12px;
+            border-radius: 3px;
+            border: 1px solid $gray-eighty;
+            &:focus{
+                outline: none;
+                border-color: $primary-green;
+            }
+        }
+    }
+
 }
 
 div.item:hover {
