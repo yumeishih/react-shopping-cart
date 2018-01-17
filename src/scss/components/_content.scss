@@ -2,16 +2,28 @@
     display:inline-flex;
     flex: 1 0 auto;
     flex-wrap: wrap;
-    align-content: space-around;
-    padding-top: 10%;
+    align-content: flex-start;
+    padding: 10% 0% 5% 0%;
+    justify-content: space-around;
+    background: $white-gray;
+    text-align: center;
 }
 
 .item{
-    text-align: center;
-    width: 300px ;
-    height: 400px ;
+    margin: 8px;
+    float: left;
+    width: 300px;
     img{
-        width: 300px ;
-        height:300px ;
+        width: 100%;
+        height: auto;
     }
+    .iteminfo{
+        background: $light-2-green;
+        padding: 15px;
+        text-align: center;
+    }
+}
+
+div.item:hover {
+    border: 1px solid $light-green;
 }
