@@ -5,13 +5,13 @@ export default class Item extends Component{
     render(){
         const item = this.props.item
         return (
-            <div className="item">
+            <div className="item" id={item.itemID}>
                 <img src={item.itemImg} />
                 <div class="iteminfo">
                     <h4>{item.itemName}</h4>
                     <p>{item.describe}</p>
                     <p>Price: {item.price}</p>
-                    <Counter  />
+                    <Counter  id={`counter_${item.itemID}`} item={item}/>
                 </div>
 
             </div>

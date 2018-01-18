@@ -3,7 +3,7 @@
     flex: 1 0 auto;
     flex-wrap: wrap;
     align-content: flex-start;
-    padding: 10% 0% 5% 0%;
+    padding: 10% 5% 5% 5%;
     justify-content: space-around;
     background: $white-gray;
     text-align: center;
@@ -12,7 +12,7 @@
 .item{
     margin: 8px;
     float: left;
-    width: 300px;
+    width: 280px;
     img{
         width: 100%;
         height: auto;
@@ -51,6 +51,7 @@
             width: 48px;
             text-align: center;
             margin: 0 12px;
+            margin-top: 2px;
             border-radius: 3px;
             border: 1px solid $gray-eighty;
             &:focus{
@@ -58,6 +59,15 @@
                 border-color: $primary-green;
             }
         }
+    }
+    // Turn off number inpur spinners
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    .addToCart{
+        margin: 5px;
     }
     &:hover {
         border: 1px solid $light-green;
