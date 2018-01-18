@@ -10,10 +10,14 @@ export default class Counter extends  Component{
 		this.decrement = this.decrement.bind(this);
     }
     increment(e){
-
+        this.setState({value: this.state.value+1});
+        e.preventDefault();
     }
     decrement(e){
-
+        if(this.state.value > 1){
+            this.setState({value: this.state.value-1});
+        }
+        e.preventDefault();
     }
     feed(e){
 

@@ -41,9 +41,9 @@
 
             }
             &:active{
-                color: $light-2-green;
+                color: $primary-green;
                 border-color: pink;
-                background: lighten(pink, 15%);
+                background: $light-2-green;
             }
         }
         .quantity{
@@ -59,9 +59,8 @@
             }
         }
     }
+    &:hover {
+        border: 1px solid $light-green;
+    }
 
-}
-
-div.item:hover {
-    border: 1px solid $light-green;
 }
