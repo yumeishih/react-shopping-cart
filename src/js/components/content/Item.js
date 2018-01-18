@@ -11,7 +11,7 @@ export default class Item extends Component{
                     <h4>{item.itemName}</h4>
                     <p>{item.describe}</p>
                     <p>Price: {item.price}</p>
-                    <Counter  id={`counter_${item.itemID}`} item={item}/>
+                    <Counter  id={`counter_${item.itemID}`} item={item} addToCart = {this.props.addToCart}/>
                 </div>
 
             </div>

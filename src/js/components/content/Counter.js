@@ -29,10 +29,10 @@ export default class Counter extends  Component{
     }
     addToCart(e){
         const feedQty = document.getElementById(this.props.id);
-        console.log(feedQty.value)
-        console.log(this.props.item)
+        this.props.addToCart(this.props.item,feedQty.value);
     }
     render(){
+
         return(
             <div>
                 <div class="stepper-input">
