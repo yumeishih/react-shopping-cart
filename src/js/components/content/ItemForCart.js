@@ -15,15 +15,11 @@ export default class ItemForCart extends Component{
         const newTotal =  this.state.item.price*Number(qty);
         this.setState({total: newTotal});
         this.props.addToCart(this.state.item, qty);
+        this.props.updateTotal();
     }
 
     render(){
         const item = this.props.item
-        const calculate = () =>{
-            const feedQty = document.getElementById(`counter_${this.state.item.itemID}`);
-            const total = Number(feedQty.value) * this.state.item.qty;
-            return total;
-        };
         return (
             <div className="item" id={item.itemID}>
                 <img src={item.itemImg} />
