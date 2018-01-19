@@ -1,10 +1,10 @@
 import React,{ Component} from "react"
 
 export default class Counter extends  Component{
-    constructor(){
+    constructor(props){
         super();
         this.state={
-            value: 1
+            value: props.qty
         }
         this.increment = this.increment.bind(this);
         this.decrement = this.decrement.bind(this);
@@ -32,7 +32,6 @@ export default class Counter extends  Component{
         this.props.addToCart(this.props.item,feedQty.value);
     }
     render(){
-
         return(
             <div>
                 <div class="stepper-input">
