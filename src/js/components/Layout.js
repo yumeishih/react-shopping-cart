@@ -14,10 +14,18 @@ export default class Layout extends Component {
         this.getCart = this.getCart.bind(this)
     }
     addToCart(item,qty){
-        item["qty"] = qty;
-        const newCart  = this.state.cart;
-        newCart.push(item);
-        this.setState( {cart: newCart});
+        const index = this.state.cart.indexOf(item)
+        if (index !=-1){
+            const updateCart = this.state.cart;
+            updateCart[index].qty = qty;
+            this.setState( {cart: updateCart});
+        }
+        else{
+            item["qty"] = qty;
+            const newCart  = this.state.cart;
+            newCart.push(item);
+            this.setState( {cart: newCart});
+        }
         console.log(this.state.cart)
     }
     getCart(){

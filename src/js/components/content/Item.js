@@ -7,7 +7,6 @@ export default class Item extends Component{
         this.state = {
             item: props.item
         }
-
         this.addToCart = this.addToCart.bind(this)
     }
     addToCart(e){

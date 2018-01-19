@@ -14,7 +14,9 @@ export default class ItemForCart extends Component{
     getTotal(qty){
         const newTotal =  this.state.item.price*Number(qty);
         this.setState({total: newTotal});
+        this.props.addToCart(this.state.item, qty);
     }
+
     render(){
         const item = this.props.item
         const calculate = () =>{
@@ -29,7 +31,12 @@ export default class ItemForCart extends Component{
                     <h4>{item.itemName}</h4>
                     <p>{item.describe}</p>
                     <p>Price: {item.price}</p>
-                    <Counter  id={`counter_${item.itemID}`} item={item} qty={item.qty} getTotal={this.getTotal}/>
+                    <Counter
+                        id={`counter_${item.itemID}`}
+                        item={item}
+                        qty={item.qty}
+                        getTotal={this.getTotal}
+                    />
                     <p>Total: {this.state.total} </p>
                 </div>
 
