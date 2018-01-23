@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import CartButton from "./header/CartButton";
 import { IndexLink, Link } from 'react-router';
 
 

@@ -1,9 +1,13 @@
+.content{
+    padding: 10% 0% 5% 0%;
+    background: $white-gray;
+}
 .itemList{
     display:inline-flex;
     flex: 1 0 auto;
     flex-wrap: wrap;
     align-content: flex-start;
-    padding: 10% 5% 5% 5%;
+    padding: 0% 5% 0% 5%;
     justify-content: space-around;
     background: $white-gray;
     text-align: center;
@@ -22,50 +26,6 @@
         padding: 15px;
         text-align: center;
     }
-    .stepper-input{
-        display: flex;
-        color: $gray-medium;
-        max-width: 120px;
-        margin: 0 auto;
-        .increment, .decrement{
-            height: 30px;
-            width: 30px;
-            text-align: center;
-            color: inherit;
-            font-size: 30px;
-            line-height: 22px;
-            &:hover{
-                color: pink;
-                border-color: pink;
-                background: $light-2-green;
-
-            }
-            &:active{
-                color: $primary-green;
-                border-color: pink;
-                background: $light-2-green;
-            }
-        }
-        .quantity{
-            height: 24px;
-            width: 48px;
-            text-align: center;
-            margin: 0 12px;
-            margin-top: 2px;
-            border-radius: 3px;
-            border: 1px solid $gray-eighty;
-            &:focus{
-                outline: none;
-                border-color: $primary-green;
-            }
-        }
-    }
-    // Turn off number inpur spinners
-    input[type=number]::-webkit-inner-spin-button,
-    input[type=number]::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
     .addToCart{
         margin: 5px;
     }
@@ -73,4 +33,49 @@
         border: 1px solid $light-green;
     }
 
+}
+
+.stepper-input{
+    display: flex;
+    color: $gray-medium;
+    max-width: 120px;
+    margin: 0 auto;
+    .increment, .decrement{
+        height: 30px;
+        width: 30px;
+        text-align: center;
+        color: inherit;
+        font-size: 30px;
+        line-height: 22px;
+        &:hover{
+            color: pink;
+            border-color: pink;
+            background: $light-2-green;
+
+        }
+        &:active{
+            color: $primary-green;
+            border-color: pink;
+            background: $light-2-green;
+        }
+    }
+    .quantity{
+        height: 24px;
+        width: 48px;
+        text-align: center;
+        margin: 0 12px;
+        margin-top: 2px;
+        border-radius: 3px;
+        border: 1px solid $gray-eighty;
+        &:focus{
+            outline: none;
+            border-color: $primary-green;
+        }
+    }
+}
+// Turn off number inpur spinners
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

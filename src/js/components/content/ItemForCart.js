@@ -1,5 +1,7 @@
 import React,{ Component} from "react"
 import Counter from "./Counter"
+import Store from '../../store'
+
 
 export default class ItemForCart extends Component{
     constructor(props){
@@ -8,22 +10,31 @@ export default class ItemForCart extends Component{
             item: props.item,
             total: props.item.qty*props.item.price
         }
-        this.getTotal = this.getTotal.bind(this)
+        this.getTotal = this.getTotal.bind(this);
+        this.deleteItem = this.deleteItem.bind(this)
     }
 
     getTotal(qty){
         const newTotal =  this.state.item.price*Number(qty);
         this.setState({total: newTotal});
-        this.props.addToCart(this.state.item, qty);
+        const store = new Store();
+        store.addToCart(this.state.item, qty);
         this.props.updateTotal();
+    }
+
+    deleteItem(e){
+        const store = new Store();
+        store.deleteFromCart(this.state.item);
+        this.props.updateTotal();
+        e.preventDefault();
     }
 
     render(){
         const item = this.props.item
         return (
-            <div className="item" id={item.itemID}>
-                <img src={item.itemImg} />
-                <div class="iteminfo">
+            <div class="itemforCart" id={item.itemID}>
+                <img src={item.itemImg} class="img"/>
+                <div class="iteminfoforCart">
                     <h4>{item.itemName}</h4>
                     <p>{item.describe}</p>
                     <p>Price: {item.price}</p>
@@ -33,9 +44,8 @@ export default class ItemForCart extends Component{
                         qty={item.qty}
                         getTotal={this.getTotal}
                     />
-                    <p>Total: {this.state.total} </p>
+                    <p>Total: {this.state.total}   <a href="#" className="trash" onClick={this.deleteItem}><span class="fa fa-trash"/></a></p>
                 </div>
-
             </div>
         );
     };
