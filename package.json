@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/*.js --require ./test/helpers.js --recursive --compilers js:babel-core/register ",
+    "test": "mocha ./test/*.js --require ./test/helpers.js --require ./test/dom.js --recursive --compilers js:babel-core/register ",
     "dev": "webpack-dev-server --content-base --inline --hot",
     "eslint": "eslint src",
     "eslint-fix": "eslint --fix src"
@@ -24,6 +24,7 @@
     "babel-eslint": "^8.2.1",
     "babel-loader": "^7.1.2",
     "babel-preset-react": "^6.24.1",
+    "jsdom": "^11.6.0",
     "material-design-icons": "^3.0.1",
     "node-sass": "^4.7.2",
     "prop-types": "^15.6.0",
