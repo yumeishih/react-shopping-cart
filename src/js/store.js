@@ -20,19 +20,21 @@ Store.prototype.getCart = function(){
 
 Store.prototype.addToCart = function(item,qty){
     const cart = this.getCart();
-    console.log(cart)
-    for(var i=0;i<cart.length;i++){
-        if(JSON.stringify(item)===JSON.stringify(cart[i])) break;
+    let index=-1;
+    for(let i=0;i<cart.length;i++){
+        if(cart[i].itemID===item.itemID) {
+            index=i;
+            break;
+        }
     }
-    const index = i;
-    if( index == cart.length){
-        item["qty"] = qty;
-        cart.push(item);
+    if( index === -1){
+        const updateItem = JSON.parse(JSON.stringify(item))
+        updateItem['qty'] = qty
+        cart.push(updateItem);
     }
     else{
         cart[index].qty = qty;
     }
-
     localStorage[this.storageNameCart] = JSON.stringify(cart);
 }
 

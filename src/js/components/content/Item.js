@@ -13,7 +13,7 @@ export default class Item extends Component{
     addToCart(e){
         const store = new Store();
         const feedQty = document.getElementById(`counter_${this.state.item.itemID}`);
-        store.addToCart(this.props.item, feedQty.value);
+        store.addToCart(this.state.item, feedQty.value);
      }
 
     render(){

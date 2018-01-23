@@ -4,7 +4,11 @@
     flex: 1 0 auto;
     padding: 10% 5% 5% 5%;
 }
-
+.itemListforCart{
+    padding: 0% 5% 0% 5%;
+    background: $white-gray;
+    text-align: center;
+}
 .itemforCart{
     margin: 8px;
     float: left;

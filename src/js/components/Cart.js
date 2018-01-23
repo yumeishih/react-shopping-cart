@@ -22,12 +22,11 @@ export default class Cart extends Component{
         const itemList = cart.map((item,i) => <ItemForCart
             key={`item${i}`}
             item={item}
-            className="col"
             updateTotal={this.updateTotal}
         />);
         return (
             <div class="cart">
-                <div class="itemList">
+                <div class="itemListforCart">
                     {itemList}
                 </div>
                 <h2>Total: {this.state.total}</h2>
