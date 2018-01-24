@@ -21,13 +21,7 @@ Store.prototype.getCart = function () {
 
 Store.prototype.addToCart = function (item, qty) {
   const cart = this.getCart();
-  let index = -1;
-  for (let i = 0; i < cart.length; i++) {
-    if (cart[i].itemID === item.itemID) {
-      index = i;
-      break;
-    }
-  }
+  const index = this.getIndex(item,cart)
   if (index === -1) {
     const updateItem = JSON.parse(JSON.stringify(item));
     updateItem.qty = qty;
@@ -44,3 +38,14 @@ Store.prototype.deleteFromCart = function (item) {
   cart.splice(index, 1);
   localStorage[this.storageNameCart] = JSON.stringify(cart);
 };
+
+Store.prototype.getIndex= function(item,cart){
+  let index = -1;
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].itemID === item.itemID) {
+      index = i;
+      break;
+    }
+  }
+  return index
+}
