@@ -10,7 +10,8 @@ Store.prototype.initItemList = function () {
 };
 
 Store.prototype.getItemList = function () {
-  return JSON.parse(localStorage[this.storageNameitems]);
+  if(localStorage[this.storageNameitems])  return JSON.parse(localStorage[this.storageNameitems]);
+  return [];
 };
 
 Store.prototype.getCart = function () {

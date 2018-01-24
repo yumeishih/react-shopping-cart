@@ -4,12 +4,12 @@ import Layout from '../src/js/components/Layout'
 describe('Layout', () => {
   const wrapper = shallow(<Layout />);
   it('has a class name of "layout"', () => {
-    expect(wrapper.find('.layout')).to.have.length(1);
+    expect(wrapper.find('.layout')).to.exist;
   });
-});
-
-describe('a passing test', () => {
-  it('should pass', () => {
-    expect(true).to.be.true;
+  it('has element "<Header />"',()=>{
+    expect(wrapper.find('Header')).to.exist;
+  });
+  it('has element "<Footer />"',()=>{
+    expect(wrapper.find('Footer')).to.exist;
   });
 });

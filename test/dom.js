@@ -6,6 +6,9 @@ const { document } = (new JSDOM('')).window;
 global.document = document;
 
 global.window = document.defaultView;
+import localStorage from 'mock-local-storage'
+window.localStorage = global.localStorage
+
 Object.keys(document.defaultView).forEach((property) => {
   if (typeof global[property] === 'undefined') {
     exposedProperties.push(property);
@@ -13,4 +16,7 @@ Object.keys(document.defaultView).forEach((property) => {
   }
 });
 
-global.navigator = global.window.navigator;
+global.navigator = {
+  userAgent: 'node.js'
+};
+
