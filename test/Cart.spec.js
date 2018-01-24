@@ -10,9 +10,9 @@ describe('Cart', () => {
     expect(wrapper.find('.cart')).to.exist;
   });
   it('first child has class name of "itemListforCart"', () => {
-    expect(wrapper.props().children[0].props.className).to.equal('itemListforCart');
+    expect(wrapper.childAt(0).props().className).to.equal('itemListforCart');
   });
   it('second child type of "h2"', () => {
-    expect(wrapper.props().children[1].type).to.equal('h2');
+    expect(wrapper.childAt(1).type()).to.equal('h2');
   });
 });

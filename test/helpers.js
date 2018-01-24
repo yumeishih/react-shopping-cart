@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { sinon, spy } from 'sinon';
+import { sinon, spy, mock ,stub ,assert} from 'sinon';
 import { mount, render, shallow } from 'enzyme';
 
 import { configure } from 'enzyme';
@@ -10,6 +10,9 @@ configure({ adapter: new Adapter() });
 global.expect = expect;
 global.sinon = sinon;
 global.spy = spy;
+global.mock = mock;
+global.stub = stub;
+global.assert = assert;
 
 global.mount = mount;
 global.render = render;

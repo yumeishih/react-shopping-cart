@@ -6,14 +6,18 @@ export default class Item extends Component {
   constructor(props) {
     super();
     this.state = {
-      item: props.item
+      item: props.item,
+      qty:1
     };
     this.addToCart = this.addToCart.bind(this);
+    this.setQty =this.setQty.bind(this);
+  }
+  setQty(newQty) {
+    this.setState({qty:newQty})
   }
   addToCart() {
     const store = new Store();
-    const feedQty = document.getElementById(`counter_${this.state.item.itemID}`);
-    store.addToCart(this.state.item, feedQty.value);
+    store.addToCart(this.state.item, this.state.qty);
   }
 
   render() {
@@ -29,6 +33,7 @@ export default class Item extends Component {
             id={`counter_${item.itemID}`}
             item={item}
             qty="1"
+            setQty = {this.setQty}
           />
           <div>
             <button className="btn btn-md btn-success addToCart" onClick={this.addToCart.bind(this)}><span className="fa fa-hand-peace-o" /> Add to Cart</button>

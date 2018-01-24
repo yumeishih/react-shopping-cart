@@ -8,26 +8,30 @@ export default class Counter extends Component {
     };
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
+    this.doParent = this.doParent.bind(this);
+  }
+  doParent(newValue){
+    if (this.props.getTotal) this.props.getTotal(newValue);
+    else this.props.setQty(newValue);
   }
   increment(e) {
     const newValue = Number(this.state.value) + 1;
     this.setState({ value: newValue });
-    if (this.props.getTotal) this.props.getTotal(newValue);
+    this.doParent(newValue);
     e.preventDefault();
   }
   decrement(e) {
     if (this.state.value > 1) {
       const newValue = Number(this.state.value) - 1;
       this.setState({ value: newValue });
-      if (this.props.getTotal) this.props.getTotal(newValue);
+      this.doParent(newValue)
     }
     e.preventDefault();
   }
-  feed() {
-    const feedQty = document.getElementById(this.props.id);
-    const newValue = feedQty.value;
+  feed(e) {
+    const newValue = e.target.value;
     this.setState({ value: newValue });
-    if (this.props.getTotal) this.props.getTotal(newValue);
+    this.doParent(newValue)
   }
 
   render() {
