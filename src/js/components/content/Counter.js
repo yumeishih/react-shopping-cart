@@ -36,15 +36,12 @@ export default class Counter extends Component {
 
   render() {
     return (
-      <div>
-        <div className="stepper-input">
-          <a href="#" className="decrement" onClick={this.decrement}><span className="fa fa-minus-square-o" /></a>
-          <input id={this.props.id} ref="feedQty" type="number" className="quantity" value={this.state.value} onChange={this.feed.bind(this)} min="1" step="1" />
-          <a href="#" className="increment" onClick={this.increment}><span className="fa fa-plus-square-o" /></a>
-          <br />
-        </div>
+      <div className="stepper-input">
+        <a href="#" className="decrement" onClick={this.decrement}><span className="fa fa-minus-square-o" /></a>
+        <input id={this.props.id} ref="feedQty" type="number" className="quantity" value={this.state.value} onChange={this.feed.bind(this)} min="1" step="1" />
+        <a href="#" className="increment" onClick={this.increment}><span className="fa fa-plus-square-o" /></a>
+        <br />
       </div>
-
     );
   }
 }

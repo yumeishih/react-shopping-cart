@@ -44,7 +44,7 @@ export default class ItemForCart extends Component {
             qty={item.qty}
             getTotal={this.getTotal}
           />
-          <p>Total: {this.state.total}   <a href="#" className="trash" onClick={this.deleteItem}><span className="fa fa-trash" /></a></p>
+          <p>Total: {this.state.total}<a href="#" className="trash" onClick={this.deleteItem}><span className="fa fa-trash" /></a></p>
         </div>
       </div>
     );
