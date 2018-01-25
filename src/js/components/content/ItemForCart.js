@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Counter from './Counter';
-import Store from '../../store';
+import { addToCart,deleteFromCart } from '../../store';
 
 
 export default class ItemForCart extends Component {
@@ -17,14 +17,12 @@ export default class ItemForCart extends Component {
   getTotal(qty) {
     const newTotal = this.state.item.price * Number(qty);
     this.setState({ total: newTotal });
-    const store = new Store();
-    store.addToCart(this.state.item, qty);
+    addToCart(this.state.item, qty);
     this.props.updateTotal();
   }
 
   deleteItem(e) {
-    const store = new Store();
-    store.deleteFromCart(this.state.item);
+    deleteFromCart(this.state.item);
     this.props.updateTotal();
     e.preventDefault();
   }

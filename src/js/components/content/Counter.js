@@ -26,7 +26,7 @@ export default class Counter extends Component {
       this.setState({ value: newValue });
       this.doParent(newValue)
     }
-    e.preventDefault();
+   e.preventDefault();
   }
   feed(e) {
     const newValue = e.target.value;

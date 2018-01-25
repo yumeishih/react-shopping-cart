@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Counter from './Counter';
-import Store from '../../store';
+import { addToCart } from '../../store';
 
 export default class Item extends Component {
   constructor(props) {
@@ -16,8 +16,7 @@ export default class Item extends Component {
     this.setState({qty:newQty})
   }
   addToCart() {
-    const store = new Store();
-    store.addToCart(this.state.item, this.state.qty);
+    addToCart(this.state.item, this.state.qty);
   }
 
   render() {

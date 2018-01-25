@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
 import ItemForCart from './content/ItemForCart';
-import Store from '../store';
+import { getCart } from '../store';
 
 export default class Cart extends Component {
   constructor() {
     super();
-    this.store = new Store();
     this.state = {
-      total: this.store.getCart().length !== 0 ?
-        this.store.getCart().map((item) => { return item.qty * item.price; })
+      total: getCart().length !== 0 ?
+        getCart().map((item) => { return item.qty * item.price; })
           .reduce((sum, num) => { return sum + num; }) : 0
     };
     this.updateTotal = this.updateTotal.bind(this);
   }
   updateTotal() {
-    const cart = this.store.getCart();
+    const cart = getCart();
     const newTotal = cart.length !== 0 ?
       cart.map((item) => { return item.qty * item.price; })
         .reduce((sum, num) => { return sum + num; }) : 0;
     this.setState({ total: newTotal });
   }
   render() {
-    const cart = this.store.getCart();
+    const cart = getCart();
     const itemList = cart.map((item, i) => (<ItemForCart
       key={`item${i}`}
       item={item}

@@ -1,27 +1,26 @@
 import ItemList from './itemList';
 
-export default function Store() {
-  this.storageNameCart = 'Cart';
-  this.storageNameitems = 'ItemList';
-}
+const storageNameCart = 'Cart';
+const storageNameitems = 'ItemList';
 
-Store.prototype.initItemList = function () {
-  localStorage[this.storageNameitems] = JSON.stringify(ItemList);
+
+export const initItemList =  () =>{
+  localStorage[storageNameitems] = JSON.stringify(ItemList);
 };
 
-Store.prototype.getItemList = function () {
-  if(localStorage[this.storageNameitems])  return JSON.parse(localStorage[this.storageNameitems]);
+export const getItemList =  ()=> {
+  if(localStorage[storageNameitems])  return JSON.parse(localStorage[storageNameitems]);
   return [];
 };
 
-Store.prototype.getCart = function () {
-  if (localStorage[this.storageNameCart]) return JSON.parse(localStorage[this.storageNameCart]);
+export const getCart =  () => {
+  if (localStorage[storageNameCart]) return JSON.parse(localStorage[storageNameCart]);
   return [];
 };
 
-Store.prototype.addToCart = function (item, qty) {
-  const cart = this.getCart();
-  const index = this.getIndex(item,cart)
+export const addToCart =  (item, qty)=>  {
+  const cart = getCart();
+  const index = getIndex(item,cart)
   if (index === -1) {
     const updateItem = JSON.parse(JSON.stringify(item));
     updateItem.qty = qty;
@@ -29,17 +28,17 @@ Store.prototype.addToCart = function (item, qty) {
   } else {
     cart[index].qty = qty;
   }
-  localStorage[this.storageNameCart] = JSON.stringify(cart);
+  localStorage[storageNameCart] = JSON.stringify(cart);
 };
 
-Store.prototype.deleteFromCart = function (item) {
-  const cart = this.getCart();
+export const deleteFromCart =  (item)=>  {
+  const cart = getCart();
   const index = cart.indexOf(item);
   cart.splice(index, 1);
-  localStorage[this.storageNameCart] = JSON.stringify(cart);
+  localStorage[storageNameCart] = JSON.stringify(cart);
 };
 
-Store.prototype.getIndex= function(item,cart){
+export const getIndex= (item,cart)=> {
   let index = -1;
   for (let i = 0; i < cart.length; i++) {
     if (cart[i].itemID === item.itemID) {
