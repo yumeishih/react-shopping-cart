@@ -12,15 +12,11 @@ describe('/content/Item', () => {
   }
   const wrapper = shallow(<Item key={fakekey} item={fakeitem} />);
 
-
   it('type of Item', () => {
     expect(wrapper.type()).to.equal('div');
   });
   it('has a class name of "item"', () => {
     expect(wrapper.find('.item')).to.exist;
-  });
-  it('has a id name of "fakeitem"', () => {
-    expect(wrapper.props().id).to.equal(fakeitem.itemID);
   });
 
   it('first child is a "img"', () => {

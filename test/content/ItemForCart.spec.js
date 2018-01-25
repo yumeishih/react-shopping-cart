@@ -19,9 +19,6 @@ describe('/content/ItemForCart', () => {
   it('has a class name of "itemforCart"', () => {
     expect(wrapper.find('.itemforCart')).to.exist;
   });
-  it('has a id name of "fakeitem"', () => {
-    expect(wrapper.props().id).to.equal(fakeitem.itemID);
-  });
 
   it('first child is a "img"', () => {
     expect(wrapper.childAt(0).type()).to.equal('img');
@@ -52,7 +49,7 @@ describe('/content/ItemForCart', () => {
   it('delete icon: deleteItem() and props.updatetotal()', () => {
     const deleteItemSpy = spy(ItemForCart.prototype, 'deleteItem');
     const deleteWrapper = shallow(<ItemForCart key={fakekey} item={fakeitem} updateTotal={updateTotalSpy}/>);
-    deleteWrapper.find('a').simulate('click',{ preventDefault: () => {} });
+    deleteWrapper.find('button').simulate('click',{ preventDefault: () => {} });
     expect(deleteItemSpy.called).to.equal(true)
     expect(updateTotalSpy.called).to.equal(true)
     deleteItemSpy.restore()

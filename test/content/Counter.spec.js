@@ -26,8 +26,8 @@ describe('/content/Counter', () => {
   it('has a class name of "stepper-input"', () => {
     expect(wrapper.find('.stepper-input')).to.exist;
   });
-  it('first child is a "a" has class name of "decrement"', () => {
-    expect(wrapper.childAt(0).type()).to.equal('a');
+  it('first child is a "button" has class name of "decrement"', () => {
+    expect(wrapper.childAt(0).type()).to.equal('button');
     expect(wrapper.childAt(0).props().className).to.equal('decrement');
   });
 
@@ -35,46 +35,46 @@ describe('/content/Counter', () => {
     expect(wrapper.childAt(1).type()).to.equal('input');
     expect(wrapper.childAt(1).props().className).to.equal('quantity');
   });
-  it('third child is a "a" has class name of "increment"', () => {
-    expect(wrapper.childAt(2).type()).to.equal('a');
+  it('third child is a "button" has class name of "increment"', () => {
+    expect(wrapper.childAt(2).type()).to.equal('button');
     expect(wrapper.childAt(2).props().className).to.equal('increment');
   });
 
   it('Item/decrement icon/qty =1: decrement() and props.setQty()', () => {
     const wrapperItem = shallow(<Counter id={`counter_${fakeitem.itemID}`} item={fakeitem} qty="1" setQty = {setQtySpy}/>);
-    wrapperItem.find('a').at(0).simulate('click',{ preventDefault: () => {} });
+    wrapperItem.find('button').at(0).simulate('click',{ preventDefault: () => {} });
     expect(decrementSpy.called).to.equal(true)
     expect(setQtySpy.called).to.equal(false)
   });
   it('Item/decrement icon/qty >1: decrement() and props.setQty()', () => {
     const wrapperItem = shallow(<Counter id={`counter_${fakeitem.itemID}`} item={fakeitem} qty="1" setQty = {setQtySpy}/>);
     wrapperItem.setState({value:2})
-    wrapperItem.find('a').at(0).simulate('click',{ preventDefault: () => {} });
+    wrapperItem.find('button').at(0).simulate('click',{ preventDefault: () => {} });
     expect(decrementSpy.called).to.equal(true)
     expect(setQtySpy.called).to.equal(true)
   });
   it('Cart/decrement icon/qty =1: decrement() and props.getTotalSpy()', () => {
     const wrapperCart = shallow(<Counter id={`counter_${fakeitem.itemID}`} item={fakeitem} qty={fakeitem.qty} getTotal={getTotalSpy}/>);
     wrapperCart.setState({value:1})
-    wrapperCart.find('a').at(0).simulate('click',{ preventDefault: () => {} });
+    wrapperCart.find('button').at(0).simulate('click',{ preventDefault: () => {} });
     expect(decrementSpy.called).to.equal(true)
     expect(getTotalSpy.called).to.equal(false)
   });
   it('Cart/decrement icon/qty >1: decrement() and props.getTotalSpy()', () => {
     const wrapperCart = shallow(<Counter id={`counter_${fakeitem.itemID}`} item={fakeitem} qty={fakeitem.qty} getTotal={getTotalSpy}/>);
-    wrapperCart.find('a').at(0).simulate('click',{ preventDefault: () => {} });
+    wrapperCart.find('button').at(0).simulate('click',{ preventDefault: () => {} });
     expect(decrementSpy.called).to.equal(true)
     expect(getTotalSpy.called).to.equal(true)
   });
   it('Item/increment icon: increment() and props.setQty()', () => {
     const wrapperItem = shallow(<Counter id={`counter_${fakeitem.itemID}`} item={fakeitem} qty="1" setQty = {setQtySpy}/>);
-    wrapperItem.find('a').at(1).simulate('click',{ preventDefault: () => {} });
+    wrapperItem.find('button').at(1).simulate('click',{ preventDefault: () => {} });
     expect(incrementSpy.called).to.equal(true)
     expect(setQtySpy.called).to.equal(true)
   });
   it('Cart/increment icon: increment() and props.getTotalSpy()', () => {
     const wrapperCart = shallow(<Counter id={`counter_${fakeitem.itemID}`} item={fakeitem} qty={fakeitem.qty} getTotal={getTotalSpy}/>);
-    wrapperCart.find('a').at(1).simulate('click',{ preventDefault: () => {} });
+    wrapperCart.find('button').at(1).simulate('click',{ preventDefault: () => {} });
     expect(incrementSpy.called).to.equal(true)
     expect(getTotalSpy.called).to.equal(true)
   });
