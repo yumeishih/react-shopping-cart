@@ -36,6 +36,7 @@ export const deleteFromCart =  (item)=>  {
   const index = getIndex(item,cart);
   cart.splice(index, 1);
   localStorage[storageNameCart] = JSON.stringify(cart);
+  console.log(cart)
 };
 
 export const getIndex= (item,cart)=> {

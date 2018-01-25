@@ -10,6 +10,10 @@ export default class Counter extends Component {
     this.decrement = this.decrement.bind(this);
     this.doParent = this.doParent.bind(this);
   }
+  componentWillReceiveProps(nextProps){
+    const newValue = nextProps.item.qty
+    this.setState({ value: newValue });
+  }
   doParent(newValue){
     if (this.props.getTotal) this.props.getTotal(newValue);
     else this.props.setQty(newValue);
@@ -18,7 +22,6 @@ export default class Counter extends Component {
     const newValue = Number(this.state.value) + 1;
     this.setState({ value: newValue });
     this.doParent(newValue);
-    e.preventDefault();
   }
   decrement(e) {
     if (this.state.value > 1) {
@@ -26,7 +29,6 @@ export default class Counter extends Component {
       this.setState({ value: newValue });
       this.doParent(newValue)
     }
-   e.preventDefault();
   }
   feed(e) {
     const newValue = e.target.value;
@@ -37,9 +39,9 @@ export default class Counter extends Component {
   render() {
     return (
       <div className="stepper-input">
-        <a href="#" className="decrement" onClick={this.decrement}><span className="fa fa-minus-square-o" /></a>
+        <button className="decrement" onClick={this.decrement}><span className="fa fa-minus-square-o" /></button>
         <input ref="feedQty" type="number" className="quantity" value={this.state.value} onChange={this.feed.bind(this)} min="1" step="1" />
-        <a href="#" className="increment" onClick={this.increment}><span className="fa fa-plus-square-o" /></a>
+        <button className="increment" onClick={this.increment}><span className="fa fa-plus-square-o" /></button>
         <br />
       </div>
     );
