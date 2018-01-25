@@ -3,11 +3,13 @@ import Item from './content/Item';
 import { getItemList } from '../store';
 
 export default class Content extends Component {
+  getItemComponents(){
+    return getItemList().map((item, i) => (<Item key={`item${i}`} item={item}/>));
+  }
   render() {
-    const itemList = getItemList().map((item, i) => <Item key={`item${i}`} item={item} />);
     return (
       <div className="content">
-        <div className="itemList">{itemList}</div>
+        <div className="itemList">{this.getItemComponents()}</div>
       </div>
     );
   }

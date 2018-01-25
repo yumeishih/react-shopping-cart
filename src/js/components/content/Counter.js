@@ -4,15 +4,14 @@ export default class Counter extends Component {
   constructor(props) {
     super();
     this.state = {
-      value: props.qty ? props.qty : 1
+      value: props.qty || 1
     };
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
     this.doParent = this.doParent.bind(this);
   }
   componentWillReceiveProps(nextProps){
-    const newValue = nextProps.item.qty
-    this.setState({ value: newValue });
+    if(nextProps.item.qty) this.setState({ value: nextProps.item.qty });
   }
   doParent(newValue){
     if (this.props.getTotal) this.props.getTotal(newValue);

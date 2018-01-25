@@ -13,18 +13,18 @@ export default class ItemForCart extends Component {
     this.deleteItem = this.deleteItem.bind(this);
   }
   componentWillReceiveProps(nextProps){
-    this.setState({ total: nextProps.item.qty * nextProps.item.price });
+    if(nextProps.item) this.setState({ total: nextProps.item.qty * nextProps.item.price });
   }
   getTotal(qty) {
     const newTotal = this.props.item.price * Number(qty);
     this.setState({ total: newTotal });
     addToCart(this.props.item, qty);
-    this.props.updateTotal();
+   this.props.updateTotal();
   }
 
   deleteItem(e) {
     deleteFromCart(this.props.item);
-    this.props.updateTotal();
+   this.props.updateTotal();
   }
 
   render() {
