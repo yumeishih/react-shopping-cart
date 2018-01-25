@@ -21,14 +21,13 @@ export default class Item extends Component {
   render() {
     const { item } = this.props;
     return (
-      <div className="item" id={item.itemID}>
+      <div className="item">
         <img src={item.itemImg} alt="Item image" />
         <div className="iteminfo">
           <h4>{item.itemName}</h4>
           <p>{item.describe}</p>
           <p>Price: {item.price}</p>
           <Counter
-            id={`counter_${item.itemID}`}
             item={item}
             qty="1"
             setQty = {this.setQty}

@@ -33,7 +33,7 @@ export const addToCart =  (item, qty)=>  {
 
 export const deleteFromCart =  (item)=>  {
   const cart = getCart();
-  const index = cart.indexOf(item);
+  const index = getIndex(item,cart);
   cart.splice(index, 1);
   localStorage[storageNameCart] = JSON.stringify(cart);
 };

@@ -29,14 +29,13 @@ export default class ItemForCart extends Component {
   render() {
     const { item } = this.props;
     return (
-      <div className="itemforCart" id={item.itemID}>
+      <div className="itemforCart">
         <img src={item.itemImg} alt="item image" className="img" />
         <div className="iteminfoforCart">
           <h4>{item.itemName}</h4>
           <p>{item.describe}</p>
           <p>Price: {item.price}</p>
           <Counter
-            id={`counter_${item.itemID}`}
             item={item}
             qty={item.qty}
             getTotal={this.getTotal}
