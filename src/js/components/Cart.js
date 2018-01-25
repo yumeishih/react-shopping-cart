@@ -8,9 +8,17 @@ export default class Cart extends Component {
     this.state = {
       total: this.calculateTotal()
     };
-   this.updateTotal = this.updateTotal.bind(this);
+    this.updateTotal = this.updateTotal.bind(this);
   }
-  calculateTotal(){
+
+  getItemForCartComponents() {
+    return getCart().map((item, i) => (<ItemForCart
+      key={`item${i}`}
+      item={item}
+      updateTotal={this.updateTotal}
+    />));
+  }
+  calculateTotal() {
     const cart = getCart();
     return cart.length !== 0 ?
       cart.map((item) => { return item.qty * item.price; })
@@ -18,13 +26,6 @@ export default class Cart extends Component {
   }
   updateTotal() {
     this.setState({ total: this.calculateTotal() });
-  }
-  getItemForCartComponents(){
-    return getCart().map((item, i) => (<ItemForCart
-      key={`item${i}`}
-      item={item}
-      updateTotal={this.updateTotal}
-    />));
   }
   render() {
     return (

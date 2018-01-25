@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -14,3 +14,7 @@ export default class Layout extends Component {
     );
   }
 }
+
+Layout.propTypes = {
+  children: PropTypes.element.isRequired
+};

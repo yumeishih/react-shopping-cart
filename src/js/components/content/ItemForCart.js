@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Counter from './Counter';
-import { addToCart,deleteFromCart } from '../../store';
-
+import { addToCart, deleteFromCart } from '../../store';
 
 export default class ItemForCart extends Component {
   constructor(props) {
@@ -12,26 +12,26 @@ export default class ItemForCart extends Component {
     this.getTotal = this.getTotal.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
   }
-  componentWillReceiveProps(nextProps){
-    if(nextProps.item) this.setState({ total: nextProps.item.qty * nextProps.item.price });
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.item) this.setState({ total: nextProps.item.qty * nextProps.item.price });
   }
   getTotal(qty) {
     const newTotal = this.props.item.price * Number(qty);
     this.setState({ total: newTotal });
     addToCart(this.props.item, qty);
-   this.props.updateTotal();
+    this.props.updateTotal();
   }
 
-  deleteItem(e) {
+  deleteItem() {
     deleteFromCart(this.props.item);
-   this.props.updateTotal();
+    this.props.updateTotal();
   }
 
   render() {
     const { item } = this.props;
     return (
       <div className="itemforCart">
-        <img src={item.itemImg} alt="item image" className="img" />
+        <img src={item.itemImg} alt={item.itemID} className="img" />
         <div className="iteminfoforCart">
           <h4>{item.itemName}</h4>
           <p>{item.describe}</p>
@@ -47,3 +47,8 @@ export default class ItemForCart extends Component {
     );
   }
 }
+
+ItemForCart.propTypes = {
+  item: PropTypes.object.isRequired,
+  updateTotal: PropTypes.func.isRequired
+};

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Counter from './Counter';
 import { addToCart } from '../../store';
 
@@ -6,13 +7,13 @@ export default class Item extends Component {
   constructor() {
     super();
     this.state = {
-      qty:1
+      qty: 1
     };
     this.addToCart = this.addToCart.bind(this);
-    this.setQty =this.setQty.bind(this);
+    this.setQty = this.setQty.bind(this);
   }
   setQty(newQty) {
-    this.setState({qty:newQty})
+    this.setState({ qty: newQty });
   }
   addToCart() {
     addToCart(this.props.item, this.state.qty);
@@ -22,7 +23,7 @@ export default class Item extends Component {
     const { item } = this.props;
     return (
       <div className="item">
-        <img src={item.itemImg} alt="Item image" />
+        <img src={item.itemImg} alt={item.itemID} />
         <div className="iteminfo">
           <h4>{item.itemName}</h4>
           <p>{item.describe}</p>
@@ -30,10 +31,10 @@ export default class Item extends Component {
           <Counter
             item={item}
             qty="1"
-            setQty = {this.setQty}
+            setQty={this.setQty}
           />
           <div>
-            <button className="btn btn-md btn-success addToCart" onClick={this.addToCart.bind(this)}><span className="fa fa-hand-peace-o" /> Add to Cart</button>
+            <button className="btn btn-md btn-success addToCart" onClick={this.addToCart}><span className="fa fa-hand-peace-o" /> Add to Cart</button>
           </div>
         </div>
 
@@ -41,3 +42,7 @@ export default class Item extends Component {
     );
   }
 }
+
+Item.propTypes = {
+  item: PropTypes.object.isRequired
+};
