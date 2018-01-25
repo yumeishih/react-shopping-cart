@@ -3,10 +3,9 @@ import Counter from './Counter';
 import { addToCart } from '../../store';
 
 export default class Item extends Component {
-  constructor(props) {
+  constructor() {
     super();
     this.state = {
-      item: props.item,
       qty:1
     };
     this.addToCart = this.addToCart.bind(this);
@@ -16,11 +15,11 @@ export default class Item extends Component {
     this.setState({qty:newQty})
   }
   addToCart() {
-    addToCart(this.state.item, this.state.qty);
+    addToCart(this.props.item, this.state.qty);
   }
 
   render() {
-    const item = this.state.item;
+    const { item } = this.props;
     return (
       <div className="item" id={item.itemID}>
         <img src={item.itemImg} alt="Item image" />

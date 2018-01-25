@@ -7,7 +7,6 @@ export default class ItemForCart extends Component {
   constructor(props) {
     super();
     this.state = {
-      item: props.item,
       total: props.item.qty * props.item.price
     };
     this.getTotal = this.getTotal.bind(this);
@@ -15,20 +14,20 @@ export default class ItemForCart extends Component {
   }
 
   getTotal(qty) {
-    const newTotal = this.state.item.price * Number(qty);
+    const newTotal = this.props.item.price * Number(qty);
     this.setState({ total: newTotal });
-    addToCart(this.state.item, qty);
+    addToCart(this.props.item, qty);
     this.props.updateTotal();
   }
 
   deleteItem(e) {
-    deleteFromCart(this.state.item);
+    deleteFromCart(this.props.item);
     this.props.updateTotal();
     e.preventDefault();
   }
 
   render() {
-    const item = this.props.item;
+    const { item } = this.props;
     return (
       <div className="itemforCart" id={item.itemID}>
         <img src={item.itemImg} alt="item image" className="img" />

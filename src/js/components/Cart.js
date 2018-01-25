@@ -20,8 +20,7 @@ export default class Cart extends Component {
     this.setState({ total: newTotal });
   }
   render() {
-    const cart = getCart();
-    const itemList = cart.map((item, i) => (<ItemForCart
+    const itemList = getCart().map((item, i) => (<ItemForCart
       key={`item${i}`}
       item={item}
       updateTotal={this.updateTotal}
