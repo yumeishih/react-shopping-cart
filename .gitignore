@@ -1,5 +1,4 @@
 node_modules/
 *.min.js
 .DS_Store*
-webpack.config.js
 dist/
