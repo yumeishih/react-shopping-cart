@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const debug = process.env.NODE_ENV !== "production";
 
 module.exports = {
-    // context: path.join(__dirname, "/"), // makes the configuration independent from CWD (current working directory).
     entry: './src/js/index.js',
     output: {
         filename: 'bundle.js',
@@ -12,21 +11,21 @@ module.exports = {
     },
     module:{
         rules: [
-          // {
-          //   test:  /\.jsx?$/,
-          //   enforce: 'pre',
-          //   use:[
-          //   { loader: 'eslint-loader',
-          //      options: {
-          //       emitError: true,
-          //       emitWarning: true,
-          //       failOnError: false
-          //     }
-          //   }
-          //   ],
-          //   exclude: /(node_modules)/,
+          {
+            test:  /\.jsx?$/,
+            enforce: 'pre',
+            use:[
+            { loader: 'eslint-loader',
+               options: {
+                emitError: true,
+                emitWarning: true,
+                failOnError: false
+              }
+            }
+            ],
+            exclude: /(node_modules)/,
 
-          // },
+          },
           {
             test: /\.jsx?$/,
             exclude: /(node_modules|bower_components)/,
