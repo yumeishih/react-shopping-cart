@@ -41,7 +41,7 @@ export default class Counter extends Component {
     return (
       <div className="stepper-input">
         <button className="decrement" onClick={this.decrement}><span className="fa fa-minus-square-o" /></button>
-        <input ref="feedQty" type="number" className="quantity" value={this.state.value} onChange={this.feed} min="1" step="1" />
+        <input type="number" className="quantity" value={this.state.value} onChange={this.feed} min="1" step="1" />
         <button className="increment" onClick={this.increment}><span className="fa fa-plus-square-o" /></button>
         <br />
       </div>
@@ -50,8 +50,29 @@ export default class Counter extends Component {
 }
 
 Counter.propTypes = {
-  item: PropTypes.object.isRequired,
-  qty: PropTypes.any,
+  item: PropTypes.shape({
+    itemID: PropTypes.string,
+    itemImg: PropTypes.string,
+    itemName: PropTypes.string,
+    describe: PropTypes.string,
+    price: PropTypes.number,
+    qty: PropTypes.number
+  }),
+  qty: PropTypes.number,
   getTotal: PropTypes.func,
   setQty: PropTypes.func,
+};
+
+Counter.defaultProps = {
+  item: PropTypes.shape({
+    itemID: '',
+    itemImg: '',
+    itemName: '',
+    describe: '',
+    price: 0,
+    qty: 0
+  }),
+  qty: 0,
+  getTotal: null,
+  setQty: null
 };

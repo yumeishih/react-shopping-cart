@@ -49,6 +49,24 @@ export default class ItemForCart extends Component {
 }
 
 ItemForCart.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: PropTypes.shape({
+    itemID: PropTypes.string,
+    itemImg: PropTypes.string,
+    itemName: PropTypes.string,
+    describe: PropTypes.string,
+    price: PropTypes.number,
+    qty: PropTypes.number
+  }),
   updateTotal: PropTypes.func.isRequired
+};
+
+ItemForCart.defaultProps = {
+  item: PropTypes.shape({
+    itemID: '',
+    itemImg: '',
+    itemName: '',
+    describe: '',
+    price: 0,
+    qty: 0
+  })
 };

@@ -4,7 +4,7 @@ import { getItemList } from '../store';
 
 export default class Content extends Component {
   getItemComponents() {
-    return getItemList().map((item, i) => (<Item key={`item${i}`} item={item} />));
+    return getItemList().map((item) => (<Item key={item.itemID} item={item} />));
   }
   render() {
     return (

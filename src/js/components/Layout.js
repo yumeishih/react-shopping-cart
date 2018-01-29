@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Header from './Header';
 import Footer from './Footer';
 
-export default class Layout extends Component {
-  render() {
-    return (
-      <div className="layout">
-        <Header />
-        {this.props.children}
-        <Footer />
-      </div>
-    );
-  }
-}
+const Layout = (props) => {
+  return (
+    <div className="layout">
+      <Header />
+      {props.children}
+      <Footer />
+    </div>
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.element.isRequired
 };
+
+export default Layout;

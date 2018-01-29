@@ -12,8 +12,8 @@ export default class Cart extends Component {
   }
 
   getItemForCartComponents() {
-    return getCart().map((item, i) => (<ItemForCart
-      key={`item${i}`}
+    return getCart().map((item) => (<ItemForCart
+      key={item.itemID}
       item={item}
       updateTotal={this.updateTotal}
     />));
