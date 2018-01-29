@@ -30,7 +30,7 @@ export default class Item extends Component {
           <p>Price: {item.price}</p>
           <Counter
             item={item}
-            qty="1"
+            qty={1}
             setQty={this.setQty}
           />
           <div>
