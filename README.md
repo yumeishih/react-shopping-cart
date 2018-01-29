@@ -64,11 +64,18 @@ $ npm run test
 
 ###### Some weird learning note
 Q: Mocha can't read webpack's config, however, while testing wanted to use webpack resolve.alias to import the module
-A: In .babeltc add the plugin `babel-plugin-webpack-aliases`
+
+A: In `.babeltc` add the plugin `babel-plugin-webpack-aliases`
 ```json
     "plugins": [
         [ "babel-plugin-webpack-aliases", { "config": "./webpack.config.js" } ]
     ]
 ```
-`$ npm run test` => `mocha --watch --compilers js:babel-core/register --require ./test/helpers.js --require ./test/dom.js --recursive`
+```sh
+$ npm run test
+``` 
+eql
+```sh
+mocha --watch --compilers js:babel-core/register --require ./test/helpers.js --require ./test/dom.js --recursive
+```
 while runing `babel-core/register`, `webpack.config.js` will be include.
