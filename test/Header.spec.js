@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../src/js/components/Header'
+import Header from 'Components/header'
 
 describe('Header', () => {
   const wrapper = shallow(<Header />);

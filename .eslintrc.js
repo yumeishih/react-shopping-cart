@@ -29,7 +29,7 @@ module.exports = {
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
       "no-plusplus": 0,
       "class-methods-use-this":0,
-      "jsx-a11y/anchor-is-valid": [ "error", { "components": [ "Link" ], "specialLink": [ "to" ] } ]
+      "jsx-a11y/anchor-is-valid": [ "error", { "components": [ "Link" ], "specialLink": [ "to" ] } ],
     },
     settings:{
       'import/resolver': 'webpack',

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ItemForCart from './content/ItemForCart';
-import { getCart } from '../store';
+import ItemForCart from 'Components/content/itemForCart';
+import { getCart } from 'Src/store';
 
 export default class Cart extends Component {
   constructor() {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Counter from './Counter';
-import { addToCart } from '../../store';
+import Counter from 'Components/content/counter';
+import { addToCart } from 'Src/store';
 
 export default class Item extends Component {
   constructor() {

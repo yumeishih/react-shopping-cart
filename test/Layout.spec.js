@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../src/js/components/Layout'
+import Layout from 'Components/layout'
 
 describe('Layout', () => {
   const wrapper = shallow(<Layout />);

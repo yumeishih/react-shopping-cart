@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from '../src/js/components/Footer'
+import Footer from 'Components/footer'
 
 describe('Footer', () => {
   const wrapper = shallow(<Footer />);

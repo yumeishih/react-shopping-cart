@@ -1,5 +1,5 @@
 import React from 'react';
-import Cart from '../src/js/components/Cart'
+import Cart from 'Components/cart'
 
 describe('Cart', () => {
   const getItemForCartComponentsSpy = spy(Cart.prototype,'getItemForCartComponents')

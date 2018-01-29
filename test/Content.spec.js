@@ -1,5 +1,5 @@
 import React from 'react';
-import Content from '../src/js/components/Content'
+import Content from 'Components/content'
 
 describe('Content', () => {
   const getItemComponentsSpy = spy(Content.prototype,'getItemComponents')

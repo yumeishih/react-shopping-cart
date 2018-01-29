@@ -1,4 +1,4 @@
-import ItemList from './itemList';
+import ItemList from 'Assets/helper/itemFakeDatas';
 
 const storageNameCart = 'Cart';
 const storageNameitems = 'ItemList';

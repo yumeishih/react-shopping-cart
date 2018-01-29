@@ -4,10 +4,18 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const debug = process.env.NODE_ENV !== "production";
 
 module.exports = {
-    entry: './src/js/index.js',
+    entry: './src/index.js',
     output: {
         filename: 'bundle.js',
         path: __dirname + "/dist/",
+    },
+    resolve: {
+      alias: {
+        Src: path.resolve(__dirname, 'src'),
+        Components: path.resolve(__dirname, 'src/components/'),
+        Assets: path.resolve(__dirname, 'src/assets/'),
+      },
+      extensions: ['.js', '.jsx']
     },
     module:{
         rules: [
@@ -24,7 +32,6 @@ module.exports = {
             }
             ],
             exclude: /(node_modules)/,
-
           },
           {
             test: /\.jsx?$/,

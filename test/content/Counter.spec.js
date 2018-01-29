@@ -1,5 +1,5 @@
 import React from 'react';
-import Counter from '../../src/js/components/content/Counter'
+import Counter from 'Components/content/counter'
 
 describe('/content/Counter', () => {
   const fakekey = 'fakeitemkey'

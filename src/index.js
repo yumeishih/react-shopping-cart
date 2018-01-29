@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 
-import Layout from './components/Layout';
-import Content from './components/Content';
-import Cart from './components/Cart';
-import { initItemList } from './store';
+import Layout from 'Components/layout';
+import Content from 'Components/content';
+import Cart from 'Components/cart';
+import { initItemList } from 'Src/store';
 
-import '../scss/style.scss';
+import 'Assets/scss/style.scss';
 
 const app = document.getElementById('app');
 initItemList();

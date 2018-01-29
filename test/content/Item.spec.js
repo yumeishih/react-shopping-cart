@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from '../../src/js/components/content/Item'
+import Item from 'Components/content/item'
 
 describe('/content/Item', () => {
   const fakekey = 'fakeitemkey'
