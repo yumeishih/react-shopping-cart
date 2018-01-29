@@ -72,6 +72,6 @@ A: In `.babeltc` add the plugin `babel-plugin-webpack-aliases`
     ]
 ```
 ```sh
-$ npm run test //mocha --watch --compilers js:babel-core/register --require ./test/helpers.js --require ./test/dom.js --recursive
+$ npm run test --> $ mocha --watch --compilers js:babel-core/register --require ./test/helpers.js --require ./test/dom.js --recursive
 ``` 
 while runing `babel-core/register`, `webpack.config.js` will be include.
