@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Counter from 'Components/content/counter';
+import Counter from 'Containers/content/counter';
 import { addToCart, deleteFromCart } from 'Src/store';
 
 export default class ItemForCart extends Component {

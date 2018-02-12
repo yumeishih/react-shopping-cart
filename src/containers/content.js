@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Item from 'Components/content/item';
+import Item from 'Containers/content/item';
 import { getItemList } from 'Src/store';
 
 export default class Content extends Component {
