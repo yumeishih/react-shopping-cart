@@ -14,6 +14,7 @@ module.exports = {
         Src: path.resolve(__dirname, 'src'),
         Components: path.resolve(__dirname, 'src/components/'),
         Containers: path.resolve(__dirname, 'src/containers/'),
+        Actions: path.resolve(__dirname, 'src/actions/'),
         Assets: path.resolve(__dirname, 'src/assets/'),
       },
       extensions: ['.js', '.jsx']

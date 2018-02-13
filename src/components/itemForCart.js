@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+
 import PropTypes from 'prop-types';
-import Counter from 'Containers/content/counter';
-import { addToCart, deleteFromCart } from 'Src/store';
+import Counter from 'Components/counter';
 
 export default class ItemForCart extends Component {
   constructor(props) {
@@ -9,22 +9,21 @@ export default class ItemForCart extends Component {
     this.state = {
       total: props.item.qty * props.item.price
     };
-    this.getTotal = this.getTotal.bind(this);
-    this.deleteItem = this.deleteItem.bind(this);
+    this.updateState = this.updateState.bind(this);
+    this.onBtnClick = this.onBtnClick.bind(this);
   }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.item) this.setState({ total: nextProps.item.qty * nextProps.item.price });
-  }
-  getTotal(qty) {
+  updateState(qty) {
     const newTotal = this.props.item.price * Number(qty);
     this.setState({ total: newTotal });
-    addToCart(this.props.item, qty);
-    this.props.updateTotal();
+    const { item, shoppingCart } = this.props;
+    const index = shoppingCart.map((item) => { return item.itemID}).indexOf(item.itemID)
+    this.props.updateCart(this.props.item, qty, index);
   }
 
-  deleteItem() {
-    deleteFromCart(this.props.item);
-    this.props.updateTotal();
+  onBtnClick() {
+    const { item, shoppingCart } = this.props;
+    const index = shoppingCart.map((item) => { return item.itemID}).indexOf(item.itemID)
+    this.props.deleteCart(index)
   }
 
   render() {
@@ -39,9 +38,9 @@ export default class ItemForCart extends Component {
           <Counter
             item={item}
             qty={item.qty}
-            getTotal={this.getTotal}
+            updateParentState={this.updateState}
           />
-          <p>Total: {this.state.total}<button className="trash" onClick={this.deleteItem}><span className="fa fa-trash" /></button></p>
+          <p>Total: {this.state.total}<button className="trash" onClick={this.onBtnClick}><span className="fa fa-trash" /></button></p>
         </div>
       </div>
     );
@@ -57,7 +56,6 @@ ItemForCart.propTypes = {
     price: PropTypes.number,
     qty: PropTypes.number
   }),
-  updateTotal: PropTypes.func.isRequired
 };
 
 ItemForCart.defaultProps = {

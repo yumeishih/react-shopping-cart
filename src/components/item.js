@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Counter from 'Containers/content/counter';
-import { addToCart } from 'Src/store';
+import Counter from 'Components/counter';
 
 export default class Item extends Component {
   constructor() {
@@ -9,14 +8,21 @@ export default class Item extends Component {
     this.state = {
       qty: 1
     };
-    this.addToCart = this.addToCart.bind(this);
-    this.setQty = this.setQty.bind(this);
+    this.onBtnClick = this.onBtnClick.bind(this);
+    this.updateState = this.updateState.bind(this);
   }
-  setQty(newQty) {
+  updateState(newQty) {
     this.setState({ qty: newQty });
   }
-  addToCart() {
-    addToCart(this.props.item, this.state.qty);
+  onBtnClick() {
+    const { item, shoppingCart } = this.props;
+    const index = shoppingCart.map((item) => { return item.itemID}).indexOf(item.itemID)
+    if(index === -1) {
+      this.props.addToCart(item,this.state.qty);
+    }
+    else {
+      this.props.updateCart(item,this.state.qty,index);
+    }
   }
 
   render() {
@@ -31,13 +37,12 @@ export default class Item extends Component {
           <Counter
             item={item}
             qty={1}
-            setQty={this.setQty}
+            updateParentState={this.updateState}
           />
           <div>
-            <button className="btn btn-md btn-success addToCart" onClick={this.addToCart}><span className="fa fa-hand-peace-o" /> Add to Cart</button>
+            <button className="btn btn-md btn-success addToCart" onClick={this.onBtnClick}><span className="fa fa-hand-peace-o" /> Add to Cart</button>
           </div>
         </div>
-
       </div>
     );
   }

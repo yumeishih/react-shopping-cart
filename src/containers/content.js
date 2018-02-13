@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import Item from 'Containers/content/item';
-import { getItemList } from 'Src/store';
+import { connect } from 'react-redux';
+import Content from 'Components/content'
 
-export default class Content extends Component {
-  getItemComponents() {
-    return getItemList().map((item) => (<Item key={item.itemID} item={item} />));
-  }
-  render() {
-    return (
-      <div className="content">
-        <div className="itemList">{this.getItemComponents()}</div>
-      </div>
-    );
-  }
+function mapStateToProps( { items } ) {
+  return { items }
 }
+export default connect(mapStateToProps)(Content)
+
+
+
+
