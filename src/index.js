@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { compose, createStore, applyMiddleware } from 'redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-import Layout from 'Components/layout';
+import Layout from 'Components/Layout/layout';
 import Content from 'Containers/content';
 import Cart from 'Containers/cart';
 import reducers from './reducers';

@@ -13,7 +13,7 @@ export default class  Cart extends Component {
     return (
       <div className="cart">
         <div className="itemListforCart">
-          {this.props.shoppingCart.map((item) =>{ return <ItemForCart key={item.itemID} item={item}/>})}
+          {this.props.shoppingCart.map((item) => <ItemForCart key={item.itemID} item={item}/> )}
         </div>
         <h2>Total:  {this.props.total} </h2>
       </div>

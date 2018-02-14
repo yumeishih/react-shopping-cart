@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
-import Counter from 'Components/counter';
+import Counter from 'Components/common/counter';
 
 export default class ItemForCart extends Component {
   constructor(props) {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getTotal } from 'Actions/index';
 import { bindActionCreators } from 'redux';
 
-import Cart from 'Components/cart';
+import Cart from 'Components/Cart/cart';
 
 function mapStateToProps( { shoppingCart, total } ) {
   return { shoppingCart, total }
