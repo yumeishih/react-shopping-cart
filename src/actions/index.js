@@ -25,7 +25,7 @@ export function deleteCart(index) {
   }
 }
 
-export const GET_TOTAL = 'GET_TOTAL '
+export const GET_TOTAL = 'GET_TOTAL'
 export function getTotal(shoppingCart) {
   const total =  shoppingCart.length !== 0 ?
   shoppingCart.map((item) => { return item.qty * item.price; })
@@ -33,5 +33,22 @@ export function getTotal(shoppingCart) {
   return {
     type: GET_TOTAL,
     payload: total
+  }
+}
+
+
+
+export const FECTH_ITEMLIST = 'FECTH_ITEMLIST'
+export function fecthItemList() {
+  return {
+    type: FECTH_ITEMLIST,
+    cb: (response, dispatch) => { dispatch(initItemList(response))}
+  }
+}
+export const INIT_ITEMLIST = 'INIT_ITEMLIST'
+export function initItemList(items) {
+  return {
+    type: INIT_ITEMLIST,
+    items
   }
 }

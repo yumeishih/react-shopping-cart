@@ -8,11 +8,13 @@ import Layout from 'Components/Layout/layout';
 import Content from 'Containers/content';
 import Cart from 'Containers/cart';
 import reducers from './reducers';
+import api from './middleware/api'
+
 import 'Assets/scss/style.scss';
 
 const app = document.getElementById('app');
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware(api)(createStore);
 const store = createStoreWithMiddleware(reducers);
 
 ReactDOM.render(
