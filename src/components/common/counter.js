@@ -52,8 +52,7 @@ Counter.propTypes = {
     qty: PropTypes.number
   }),
   qty: PropTypes.number,
-  getTotal: PropTypes.func,
-  setQty: PropTypes.func,
+  updateQty: PropTypes.func,
 };
 
 Counter.defaultProps = {
@@ -66,6 +65,5 @@ Counter.defaultProps = {
     qty: 0
   }),
   qty: 0,
-  getTotal: null,
-  setQty: null
+  updateQty: null
 };
