@@ -1,4 +1,4 @@
-import { CALL_API } from '../middleware/api';
+import { CALL_API } from 'Src/middleware/api';
 
 export const FECTH_ITEMLIST_SUCCESS = 'FECTH_ITEMLIST_SUCCESS';
 export const FECTH_ITEMLIST_FAILED = 'FECTH_ITEMLIST_FAILED';
