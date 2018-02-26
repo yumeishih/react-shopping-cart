@@ -17,24 +17,24 @@ export default class Content extends Component {
 }
 
 Content.propTypes = {
-  items: PropTypes.shape({
+  items: PropTypes.arrayOf(PropTypes.shape({
     itemID: PropTypes.string,
     itemImg: PropTypes.string,
     itemName: PropTypes.string,
     describe: PropTypes.string,
     price: PropTypes.number,
     map: PropTypes.func
-  }),
+  })),
   fecthItemList: PropTypes.func,
 };
 
 Content.defaultProps = {
-  items: PropTypes.shape({
+  items: PropTypes.arrayOf(PropTypes.shape({
     itemID: '',
     itemImg: '',
     itemName: '',
     describe: '',
     price: 0,
-  }),
+  })),
   fecthItemList: null,
 };

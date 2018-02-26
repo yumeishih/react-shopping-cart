@@ -34,7 +34,7 @@ export default class Cart extends Component {
 }
 
 Cart.propTypes = {
-  shoppingCart: PropTypes.shape({
+  shoppingCart: PropTypes.arrayOf(PropTypes.shape({
     itemID: PropTypes.string,
     itemImg: PropTypes.string,
     itemName: PropTypes.string,
@@ -42,20 +42,20 @@ Cart.propTypes = {
     price: PropTypes.number,
     qty: PropTypes.number,
     map: PropTypes.func
-  }),
+  })),
   fecthCart: PropTypes.func,
-  isChanged: PropTypes.func
+  isChanged: PropTypes.bool
 };
 
 Cart.defaultProps = {
-  shoppingCart: PropTypes.shape({
+  shoppingCart: PropTypes.arrayOf(PropTypes.shape({
     itemID: '',
     itemImg: '',
     itemName: '',
     describe: '',
     price: 0,
     qty: 0
-  }),
+  })),
   fecthCart: null,
-  isChanged: null
+  isChanged: false
 };

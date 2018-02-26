@@ -57,14 +57,14 @@ ItemForCart.propTypes = {
     price: PropTypes.number,
     qty: PropTypes.number
   }),
-  shoppingCart: PropTypes.shape({
+  shoppingCart: PropTypes.arrayOf(PropTypes.shape({
     itemID: PropTypes.string,
     itemImg: PropTypes.string,
     itemName: PropTypes.string,
     describe: PropTypes.string,
     price: PropTypes.number,
     qty: PropTypes.number
-  }),
+  })),
   updateCart: PropTypes.func,
   deleteCart: PropTypes.func
 };
@@ -78,14 +78,14 @@ ItemForCart.defaultProps = {
     price: 0,
     qty: 0
   }),
-  shoppingCart: PropTypes.shape({
+  shoppingCart: PropTypes.arrayOf(PropTypes.shape({
     itemID: '',
     itemImg: '',
     itemName: '',
     describe: '',
     price: 0,
     qty: 0
-  }),
+  })),
   updateCart: null,
   deleteCart: null
 };
