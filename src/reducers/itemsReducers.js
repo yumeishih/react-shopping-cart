@@ -5,7 +5,6 @@ export default function(state={
 } ,action) {
   switch (action.type) {
     case FECTH_ITEMLIST_SUCCESS:{
-      console.log("reducer: ", action.payload )
       return { ...state, items: action.payload}
     }
   }

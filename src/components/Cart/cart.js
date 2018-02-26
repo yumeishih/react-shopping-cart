@@ -14,7 +14,6 @@ export default class  Cart extends Component {
   componentWillReceiveProps(nextProps){
     const total = calculateTotal(nextProps.shoppingCart);
     this.setState({total})
-    console.log("total: ",total)
     if(nextProps.isChanged) {
       nextProps.fecthCart();
     }

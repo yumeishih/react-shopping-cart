@@ -3,8 +3,6 @@ export default function(state = {
   shoppingCart:[],
   isChanged: false
 } ,action) {
-  console.log("shopping reducer(type): ", action.type )
-  console.log("shopping reducer: ", action.payload )
   switch (action.type) {
     case ADD_TO_CART_SUCCESS:{
       return { ...state, shoppingCart: [...state.shoppingCart, action.payload], isChanged:action.isChanged}

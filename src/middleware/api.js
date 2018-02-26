@@ -3,7 +3,7 @@ const SERVER_PATH = 'http://localhost:3000/'
 const fetchApi = (action,store) =>{
   return fetch(SERVER_PATH+action.endpoint, action.props).then((response)=>{
     return response.json()
-  }).catch((error) => {console.log("err: ",err);action.callbackErr(error)})
+  }).catch((error) => {action.callbackErr(error)})
 }
 
 export const CALL_API = 'CALL_API'
@@ -11,7 +11,6 @@ export default store => next => action => {
   const callAPI = action[CALL_API]
   if(typeof callAPI === 'undefined') return next(action)
   else {
-    console.log(callAPI)
     const [ successType, failureType ] = callAPI.types
     const { isChanged } = callAPI
     const actionWith = (newInfo) => {
