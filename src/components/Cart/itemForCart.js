@@ -13,7 +13,7 @@ export default class ItemForCart extends Component {
     this.deleteCartClick = this.deleteCartClick.bind(this);
   }
   componentWillReceiveProps(nextProps) {
-    if(this.props.item.qty !== nextProps.item.qty) this.setState({ total:nextProps.item.qty * nextProps.item.price})
+    if (this.props.item.qty !== nextProps.item.qty) this.setState({ total: nextProps.item.qty * nextProps.item.price });
   }
 
   updateQty(qty) {

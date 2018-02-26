@@ -12,7 +12,7 @@ export default class Counter extends Component {
     this.feed = this.feed.bind(this);
   }
   componentWillReceiveProps(nextProps) {
-    if(this.props.qty !== nextProps.qty) this.setState({value:nextProps.qty})
+    if (this.props.qty !== nextProps.qty) this.setState({ value: nextProps.qty });
   }
   increment() {
     const newValue = Number(this.state.value) + 1;
