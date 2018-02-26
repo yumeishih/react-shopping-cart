@@ -43,27 +43,11 @@ export default class Counter extends Component {
 }
 
 Counter.propTypes = {
-  item: PropTypes.shape({
-    itemID: PropTypes.string,
-    itemImg: PropTypes.string,
-    itemName: PropTypes.string,
-    describe: PropTypes.string,
-    price: PropTypes.number,
-    qty: PropTypes.number
-  }),
   qty: PropTypes.number,
   updateQty: PropTypes.func,
 };
 
 Counter.defaultProps = {
-  item: PropTypes.shape({
-    itemID: '',
-    itemImg: '',
-    itemName: '',
-    describe: '',
-    price: 0,
-    qty: 0
-  }),
   qty: 0,
   updateQty: null
 };

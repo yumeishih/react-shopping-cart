@@ -1,21 +1,24 @@
-import { ADD_TO_CART_SUCCESS, UPDATE_CART_SUCCESS, DELETE_CART_SUCCESS, FECTH_CART_SUCCESS } from '../actions/index'
-export default function(state = {
-  shoppingCart:[],
+import { ADD_TO_CART_SUCCESS, UPDATE_CART_SUCCESS, DELETE_CART_SUCCESS, FECTH_CART_SUCCESS } from '../actions/index';
+
+export default function (state = {
+  shoppingCart: [],
   isChanged: false
-} ,action) {
+}, action) {
   switch (action.type) {
-    case ADD_TO_CART_SUCCESS:{
-      return { ...state, shoppingCart: [...state.shoppingCart, action.payload], isChanged:action.isChanged}
+    case ADD_TO_CART_SUCCESS: {
+      return { ...state, shoppingCart: [...state.shoppingCart, action.payload], isChanged: action.isChanged };
     }
     case UPDATE_CART_SUCCESS: {
-      return { ...state, isChanged:action.isChanged}
+      return { ...state, isChanged: action.isChanged };
     }
     case DELETE_CART_SUCCESS: {
-      return { ...state, isChanged:action.isChanged}
+      return { ...state, isChanged: action.isChanged };
     }
     case FECTH_CART_SUCCESS: {
-      return { ...state, shoppingCart: action.payload,isChanged:action.isChanged}
+      return { ...state, shoppingCart: action.payload, isChanged: action.isChanged };
+    }
+    default: {
+      return state;
     }
   }
-  return state
 }

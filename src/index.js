@@ -8,8 +8,8 @@ import ReduxThunk from 'redux-thunk';
 import Layout from 'Components/Layout/layout';
 import Content from 'Containers/content';
 import Cart from 'Containers/cart';
-import reducers from './reducers';
-import api from './middleware/api'
+import reducers from 'Src/reducers';
+import api from 'Src/middleware/api';
 
 import 'Assets/scss/style.scss';
 
@@ -17,7 +17,7 @@ const app = document.getElementById('app');
 const store = createStore(reducers, applyMiddleware(ReduxThunk, api));
 
 ReactDOM.render(
-  <Provider store = {store}>
+  <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={Layout}>
         <IndexRoute component={Content} />
@@ -26,5 +26,5 @@ ReactDOM.render(
     </Router>
   </Provider>
   , app
-)
+);
 

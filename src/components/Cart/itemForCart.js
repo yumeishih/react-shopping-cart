@@ -17,14 +17,14 @@ export default class ItemForCart extends Component {
     const newTotal = this.props.item.price * Number(qty);
     this.setState({ total: newTotal });
     const { item, shoppingCart } = this.props;
-    const index = shoppingCart.map((item) => { return item.itemID}).indexOf(item.itemID)
+    const index = shoppingCart.map((element) => { return element.itemID; }).indexOf(item.itemID);
     this.props.updateCart(this.props.item, qty, index);
   }
 
   deleteCartClick() {
     const { item, shoppingCart } = this.props;
-    const index = shoppingCart.map((item) => { return item.itemID}).indexOf(item.itemID)
-    this.props.deleteCart(item,index)
+    const index = shoppingCart.map((element) => { return element.itemID; }).indexOf(item.itemID);
+    this.props.deleteCart(item, index);
   }
 
   render() {
@@ -57,6 +57,16 @@ ItemForCart.propTypes = {
     price: PropTypes.number,
     qty: PropTypes.number
   }),
+  shoppingCart: PropTypes.shape({
+    itemID: PropTypes.string,
+    itemImg: PropTypes.string,
+    itemName: PropTypes.string,
+    describe: PropTypes.string,
+    price: PropTypes.number,
+    qty: PropTypes.number
+  }),
+  updateCart: PropTypes.func,
+  deleteCart: PropTypes.func
 };
 
 ItemForCart.defaultProps = {
@@ -67,5 +77,15 @@ ItemForCart.defaultProps = {
     describe: '',
     price: 0,
     qty: 0
-  })
+  }),
+  shoppingCart: PropTypes.shape({
+    itemID: '',
+    itemImg: '',
+    itemName: '',
+    describe: '',
+    price: 0,
+    qty: 0
+  }),
+  updateCart: null,
+  deleteCart: null
 };

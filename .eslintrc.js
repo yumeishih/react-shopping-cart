@@ -30,6 +30,7 @@ module.exports = {
       "no-plusplus": 0,
       "class-methods-use-this":0,
       "jsx-a11y/anchor-is-valid": [ "error", { "components": [ "Link" ], "specialLink": [ "to" ] } ],
+      "max-len":0
     },
     settings:{
       'import/resolver': 'webpack',

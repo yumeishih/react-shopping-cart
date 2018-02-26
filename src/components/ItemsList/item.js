@@ -16,12 +16,11 @@ export default class Item extends Component {
   }
   addToCartClick() {
     const { item, shoppingCart } = this.props;
-    const index = shoppingCart.map((item) => { return item.itemID}).indexOf(item.itemID)
-    if(index === -1) {
-      this.props.addToCart(item,this.state.qty);
-    }
-    else {
-      this.props.updateCart(item,this.state.qty,index);
+    const index = shoppingCart.map((element) => { return element.itemID; }).indexOf(item.itemID);
+    if (index === -1) {
+      this.props.addToCart(item, this.state.qty);
+    } else {
+      this.props.updateCart(item, this.state.qty, index);
     }
   }
 
@@ -57,6 +56,16 @@ Item.propTypes = {
     price: PropTypes.number,
     qty: PropTypes.number
   }),
+  shoppingCart: PropTypes.shape({
+    itemID: PropTypes.string,
+    itemImg: PropTypes.string,
+    itemName: PropTypes.string,
+    describe: PropTypes.string,
+    price: PropTypes.number,
+    qty: PropTypes.number
+  }),
+  addToCart: PropTypes.func,
+  updateCart: PropTypes.func,
 };
 
 Item.defaultProps = {
@@ -67,5 +76,15 @@ Item.defaultProps = {
     describe: '',
     price: 0,
     qty: 0
-  })
+  }),
+  shoppingCart: PropTypes.shape({
+    itemID: '',
+    itemImg: '',
+    itemName: '',
+    describe: '',
+    price: 0,
+    qty: 0
+  }),
+  addToCart: null,
+  updateCart: null
 };
