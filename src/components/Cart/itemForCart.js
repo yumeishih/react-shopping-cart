@@ -9,10 +9,11 @@ export default class ItemForCart extends Component {
     this.state = {
       total: props.item.qty * props.item.price
     };
-    this.updateState = this.updateState.bind(this);
+    this.updateQty = this.updateQty.bind(this);
     this.onBtnClick = this.onBtnClick.bind(this);
   }
-  updateState(qty) {
+
+  updateQty(qty) {
     const newTotal = this.props.item.price * Number(qty);
     this.setState({ total: newTotal });
     const { item, shoppingCart } = this.props;
@@ -23,7 +24,7 @@ export default class ItemForCart extends Component {
   onBtnClick() {
     const { item, shoppingCart } = this.props;
     const index = shoppingCart.map((item) => { return item.itemID}).indexOf(item.itemID)
-    this.props.deleteCart(index)
+    this.props.deleteCart(item,index)
   }
 
   render() {
@@ -38,7 +39,7 @@ export default class ItemForCart extends Component {
           <Counter
             item={item}
             qty={item.qty}
-            updateParentState={this.updateState}
+            updateQty={this.updateQty}
           />
           <p>Total: {this.state.total}<button className="trash" onClick={this.onBtnClick}><span className="fa fa-trash" /></button></p>
         </div>

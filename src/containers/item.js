@@ -7,7 +7,7 @@ import Item from 'Components/ItemsList/item'
 function mapDispatchToProps(dispatch){
   return bindActionCreators( { addToCart, updateCart}, dispatch);
 }
-function mapStateToProps( { shoppingCart } ) {
-  return { shoppingCart }
-}
+const mapStateToProps = (state)  => (
+  { shoppingCart: state.ShoppingCartReducer.shoppingCart }
+)
 export default connect(mapStateToProps,mapDispatchToProps)(Item);

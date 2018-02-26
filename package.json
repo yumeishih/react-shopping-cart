@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha --watch --compilers js:babel-core/register --require ./test/helpers.js --require ./test/dom.js --recursive",
     "dev": "webpack-dev-server --content-base --inline --hot",
+    "server": "node ./server/server.js",
     "eslint": "eslint src",
     "eslint-fix": "eslint --fix src"
   },
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/yumeishih/react-shopping-cart#readme",
   "dependencies": {
+    "mongoose": "^5.0.6",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -28,7 +30,9 @@
     "react-router": "^3.0.5",
     "react-router-dom": "^4.0.0",
     "redux": "^3.7.2",
-    "redux-localstore": "^0.2.1"
+    "redux-localstore": "^0.2.1",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

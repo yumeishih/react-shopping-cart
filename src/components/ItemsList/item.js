@@ -9,9 +9,9 @@ export default class Item extends Component {
       qty: 1
     };
     this.onBtnClick = this.onBtnClick.bind(this);
-    this.updateState = this.updateState.bind(this);
+    this.updateQty = this.updateQty.bind(this);
   }
-  updateState(newQty) {
+  updateQty(newQty) {
     this.setState({ qty: newQty });
   }
   onBtnClick() {
@@ -37,7 +37,7 @@ export default class Item extends Component {
           <Counter
             item={item}
             qty={1}
-            updateParentState={this.updateState}
+            updateQty={this.updateQty}
           />
           <div>
             <button className="btn btn-md btn-success addToCart" onClick={this.onBtnClick}><span className="fa fa-hand-peace-o" /> Add to Cart</button>

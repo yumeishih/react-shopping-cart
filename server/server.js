@@ -1,42 +1,18 @@
-const ItemList = [
-  {
-    itemID: 'item1',
-    itemImg: './src/assets/imgs/items/bear.jpg',
-    itemName: 'Bear',
-    describe: 'aaaa',
-    price: 1
-  },
-  {
-    itemID: 'item2',
-    itemImg: './src/assets/imgs/items/hellokitty.jpg',
-    itemName: 'HelloKitty',
-    describe: 'bbbb',
-    price: 2
-  },
-  {
-    itemID: 'item3',
-    itemImg: './src/assets/imgs/items/snoopy.jpg',
-    itemName: 'Snoopy',
-    describe: 'cccc',
-    price: 3
-  },
-  {
-    itemID: 'item4',
-    itemImg: './src/assets/imgs/items/nick.jpg',
-    itemName: 'Nick',
-    describe: 'dddd',
-    price: 4
-  },
-  {
-    itemID: 'item5',
-    itemImg: './src/assets/imgs/items/davis.jpg',
-    itemName: 'Davis',
-    describe: 'eeee',
-    price: 5
-  }
-];
+/* Connect to the database */
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test');
+//mongoose.promise = Promise;
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+  console.log("Database Connected.");
+});
 
-const express = require('express')
+const express = require('express'),
+      bodyParser = require('body-parser'), //parses information from POST
+      ItemList = require('./model/items'),
+      Cart = require('./model/cart')
+
 const app = express()
 // Add headers
 app.use(function (req, res, next) {
@@ -45,6 +21,47 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
   next();
 });
-app.get('/', (req, res) => res.send(ItemList))
+app.use(bodyParser.json({ extended: true }))
+
+/* ItemList */
+app.get('/itemlist', (req, res) => {
+  ItemList.find( (err, itemList) => {
+    if (err) return console.error(err);
+    res.send(itemList)
+  });
+})
+
+/* Cart */
+app.get('/cart', (req, res) => {
+  Cart.find( (err, cartItem) => {
+    if (err) return console.error(err);
+    console.log('getcart: ' , cartItem)
+    res.send(cartItem)
+  });
+})
+
+app.post('/addtocart', (req, res) => {
+  Cart.create(req.body, (err, cartItem) =>{
+    console.log('addtocart: ',cartItem)
+    if(err) console.error(err);
+    res.send(cartItem)
+  })
+})
+
+app.post('/:id/updatecart', (req, res) => {
+  Cart.update({itemID: req.params.id}, req.body,(err, cartItem) =>{
+    if(err) console.error(err);
+    console.log('update: ',cartItem)
+    res.send(cartItem)
+  })
+})
+
+app.get('/:id/deletecart', (req, res) => {
+  Cart.remove({itemID: req.params.id}, (err, cartItem) =>{
+    if(err) console.error(err);
+    console.log('deletecart: ',cartItem)
+    res.send(cartItem)
+  })
+})
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))

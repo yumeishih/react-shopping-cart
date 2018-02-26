@@ -4,9 +4,8 @@ import ItemsReducer from './itemsReducers'
 
 
 const rootReducer = combineReducers({
-  shoppingCart : ShoppingCartReducer,
-  items : ItemsReducer,
-  total: Total
+  ShoppingCartReducer,
+  ItemsReducer,
 });
 
 export default rootReducer;

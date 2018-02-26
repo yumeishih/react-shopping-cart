@@ -1,28 +1,23 @@
-import { ADD_TO_CART, UPDATE_CART, DELETE_CART, GET_TOTAL } from '../actions/index'
+import { ADD_TO_CART_SUCCESS, UPDATE_CART_SUCCESS, DELETE_CART_SUCCESS, FECTH_CART_SUCCESS } from '../actions/index'
 
-export default function(state = [] ,action) {
+export default function(state = {
+  shoppingCart:[],
+  isChanged: false
+} ,action) {
+  console.log("shopping reducer(type): ", action.type )
+  console.log("shopping reducer: ", action.payload )
   switch (action.type) {
-    case ADD_TO_CART: {
-      return [...state, action.payload]
+    case ADD_TO_CART_SUCCESS:{
+      return { ...state, shoppingCart: [...state.shoppingCart, action.payload], isChanged:action.isChanged}
     }
-    case UPDATE_CART: {
-      state.splice(action.index, 1, action.payload);
-      const newState = state.slice();
-      return newState
+    case UPDATE_CART_SUCCESS: {
+      return { ...state, isChanged:action.isChanged}
     }
-    case DELETE_CART: {
-      state.splice(action.index, 1);
-      const newState = state.slice();
-      return newState
+    case DELETE_CART_SUCCESS: {
+      return { ...state, isChanged:action.isChanged}
     }
-  }
-  return state
-}
-
-export const Total = (state = 0 ,action) => {
-  switch(action.type) {
-    case GET_TOTAL: {
-      return action.payload
+    case FECTH_CART_SUCCESS: {
+      return { ...state, shoppingCart: action.payload,isChanged:action.isChanged}
     }
   }
   return state

@@ -1,54 +1,75 @@
-export const ADD_TO_CART = 'ADD_TO_CART'
-export function addToCart(item,qty) {
-  item['qty'] = qty
-  return {
-    type: ADD_TO_CART,
-    payload: item
-  }
-}
+import { CALL_API } from '../middleware/api'
 
-export const UPDATE_CART= 'UPDATE_CART'
-export function updateCart(item,qty,index) {
-  item['qty'] = qty
-  return {
-    type: UPDATE_CART,
-    payload: item,
-    index: index
+export const FECTH_ITEMLIST_SUCCESS = 'FECTH_ITEMLIST_SUCCESS'
+export const FECTH_ITEMLIST_FAILED = 'FECTH_ITEMLIST_FAILED'
+export const fecthItemList = () => ({
+  [CALL_API]: {
+    endpoint: 'itemlist',
+    props:{
+      method: 'GET'
+    },
+    types: [FECTH_ITEMLIST_SUCCESS,FECTH_ITEMLIST_FAILED],
   }
-}
+});
 
-export const DELETE_CART= 'DELETE_CART'
-export function deleteCart(index) {
-  return {
-    type: DELETE_CART,
-    index: index
+export const FECTH_CART_SUCCESS = 'FECTH_CART_SUCCESS'
+export const FECTH_CART_FAILED = 'FECTH_CART_FAILED'
+export const fecthCart = () => ({
+  [CALL_API]: {
+    endpoint: 'cart',
+    props:{
+      method: 'GET'
+    },
+    types: [FECTH_CART_SUCCESS,FECTH_CART_FAILED],
+    isChanged: false,
   }
-}
+});
 
-export const GET_TOTAL = 'GET_TOTAL'
-export function getTotal(shoppingCart) {
-  const total =  shoppingCart.length !== 0 ?
-  shoppingCart.map((item) => { return item.qty * item.price; })
-    .reduce((sum, num) => { return sum + num; }) : 0;
-  return {
-    type: GET_TOTAL,
-    payload: total
+export const ADD_TO_CART_SUCCESS = 'ADD_TO_CART_SUCCESS'
+export const ADD_TO_CART_FAILED = 'ADD_TO_CART_FAILED'
+export const addToCart = (item,qty) => ({
+  [CALL_API]: {
+    endpoint: 'addtocart',
+    props:{
+      method: 'POST',
+      body: JSON.stringify({...item, qty}),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    },
+    types: [ADD_TO_CART_SUCCESS,ADD_TO_CART_FAILED],
+    isChanged: true
   }
-}
+});
 
 
-
-export const FECTH_ITEMLIST = 'FECTH_ITEMLIST'
-export function fecthItemList() {
-  return {
-    type: FECTH_ITEMLIST,
-    cb: (response, dispatch) => { dispatch(initItemList(response))}
+export const UPDATE_CART_SUCCESS= 'UPDATE_CART_SUCCESS'
+export const UPDATE_CART_FAILED= 'UPDATE_CART_FAILED'
+export const updateCart = (item,qty) => ({
+  [CALL_API]: {
+    endpoint: `${item.itemID}/updatecart`,
+    props:{
+      method: 'POST',
+      body: JSON.stringify({...item, qty}),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    },
+    types: [UPDATE_CART_SUCCESS,UPDATE_CART_FAILED],
+    isChanged: true
   }
-}
-export const INIT_ITEMLIST = 'INIT_ITEMLIST'
-export function initItemList(items) {
-  return {
-    type: INIT_ITEMLIST,
-    items
+});
+
+export const DELETE_CART_SUCCESS= 'DELETE_CART_SUCCESS'
+export const DELETE_CART_FAILED= 'DELETE_CART_FAILED'
+export const deleteCart = (item) => ({
+  [CALL_API]: {
+    endpoint: `${item.itemID}/deletecart`,
+    props:{
+      method: 'GET',
+    },
+    types: [DELETE_CART_SUCCESS,DELETE_CART_FAILED],
+    isChanged: true
   }
-}
+});
+

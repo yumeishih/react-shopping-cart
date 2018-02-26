@@ -1,12 +1,13 @@
 import React, { Component} from 'react';
 import ItemForCart from 'Containers/itemForCart';
-
 export default class  Cart extends Component {
-  componentWillMount(){
-    this.props.getTotal(this.props.shoppingCart)
+  constructor(props){
+    super(props)
+    props.fecthCart();
   }
-  componentWillUpdate(nextProps, nextState){
-    nextProps.getTotal(nextProps.shoppingCart)
+
+  componentWillReceiveProps(nextProps){
+    if(nextProps.isChanged) nextProps.fecthCart();
   }
 
   render(){

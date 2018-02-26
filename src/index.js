@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { compose, createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import ReduxThunk from 'redux-thunk';
 
 import Layout from 'Components/Layout/layout';
 import Content from 'Containers/content';
@@ -13,9 +14,7 @@ import api from './middleware/api'
 import 'Assets/scss/style.scss';
 
 const app = document.getElementById('app');
-
-const createStoreWithMiddleware = applyMiddleware(api)(createStore);
-const store = createStoreWithMiddleware(reducers);
+const store = createStore(reducers, applyMiddleware(ReduxThunk, api));
 
 ReactDOM.render(
   <Provider store = {store}>

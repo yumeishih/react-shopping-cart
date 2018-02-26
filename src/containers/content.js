@@ -5,10 +5,9 @@ import { fecthItemList } from 'Actions/index';
 import { bindActionCreators } from 'redux';
 
 
-
-function mapStateToProps( { items } ) {
-  return { items }
-}
+const mapStateToProps = (state)  => (
+   { items: state.ItemsReducer.items }
+)
 function mapDispatchToProps(dispatch){
   return bindActionCreators( { fecthItemList }, dispatch);
 }
