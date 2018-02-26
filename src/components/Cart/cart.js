@@ -27,7 +27,7 @@ export default class Cart extends Component {
         <div className="itemListforCart">
           {this.props.shoppingCart.map((item) => <ItemForCart key={item.itemID} item={item} />)}
         </div>
-        <h2>Total:  {this.state.total} </h2>
+        <h2>Total: {this.state.total}</h2>
       </div>
     );
   }
