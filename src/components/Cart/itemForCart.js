@@ -10,7 +10,7 @@ export default class ItemForCart extends Component {
       total: props.item.qty * props.item.price
     };
     this.updateQty = this.updateQty.bind(this);
-    this.onBtnClick = this.onBtnClick.bind(this);
+    this.deleteCartClick = this.deleteCartClick.bind(this);
   }
 
   updateQty(qty) {
@@ -21,7 +21,7 @@ export default class ItemForCart extends Component {
     this.props.updateCart(this.props.item, qty, index);
   }
 
-  onBtnClick() {
+  deleteCartClick() {
     const { item, shoppingCart } = this.props;
     const index = shoppingCart.map((item) => { return item.itemID}).indexOf(item.itemID)
     this.props.deleteCart(item,index)
@@ -41,7 +41,7 @@ export default class ItemForCart extends Component {
             qty={item.qty}
             updateQty={this.updateQty}
           />
-          <p>Total: {this.state.total}<button className="trash" onClick={this.onBtnClick}><span className="fa fa-trash" /></button></p>
+          <p>Total: {this.state.total}<button className="trash" onClick={this.deleteCartClick}><span className="fa fa-trash" /></button></p>
         </div>
       </div>
     );

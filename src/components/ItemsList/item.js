@@ -8,13 +8,13 @@ export default class Item extends Component {
     this.state = {
       qty: 1
     };
-    this.onBtnClick = this.onBtnClick.bind(this);
+    this.addToCartClick = this.addToCartClick.bind(this);
     this.updateQty = this.updateQty.bind(this);
   }
   updateQty(newQty) {
     this.setState({ qty: newQty });
   }
-  onBtnClick() {
+  addToCartClick() {
     const { item, shoppingCart } = this.props;
     const index = shoppingCart.map((item) => { return item.itemID}).indexOf(item.itemID)
     if(index === -1) {
@@ -40,7 +40,7 @@ export default class Item extends Component {
             updateQty={this.updateQty}
           />
           <div>
-            <button className="btn btn-md btn-success addToCart" onClick={this.onBtnClick}><span className="fa fa-hand-peace-o" /> Add to Cart</button>
+            <button className="btn btn-md btn-success addToCart" onClick={this.addToCartClick}><span className="fa fa-hand-peace-o" /> Add to Cart</button>
           </div>
         </div>
       </div>
