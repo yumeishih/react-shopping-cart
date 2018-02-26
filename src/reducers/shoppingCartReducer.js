@@ -1,5 +1,4 @@
 import { ADD_TO_CART_SUCCESS, UPDATE_CART_SUCCESS, DELETE_CART_SUCCESS, FECTH_CART_SUCCESS } from '../actions/index'
-
 export default function(state = {
   shoppingCart:[],
   isChanged: false

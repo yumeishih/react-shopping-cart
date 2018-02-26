@@ -2,9 +2,8 @@ const SERVER_PATH = 'http://localhost:3000/'
 
 const fetchApi = (action,store) =>{
   return fetch(SERVER_PATH+action.endpoint, action.props).then((response)=>{
-    if(action.cb) action.cb(json, store.dispatch);
     return response.json()
-  }).catch((error) => action.callbackErr(error))
+  }).catch((error) => {console.log("err: ",err);action.callbackErr(error)})
 }
 
 export const CALL_API = 'CALL_API'
