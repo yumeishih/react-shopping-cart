@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Counter from 'Components/common/counter';
+import _ from 'lodash';
 
 export default class Item extends Component {
   constructor() {
@@ -16,7 +17,7 @@ export default class Item extends Component {
   }
   addToCartClick() {
     const { item, shoppingCart } = this.props;
-    const index = shoppingCart.map((element) => { return element.itemID; }).indexOf(item.itemID);
+    const index = _.findIndex(shoppingCart, (element) => { return element.itemID === item.itemID; });
     if (index === -1) {
       this.props.addToCart(item, this.state.qty);
     } else {

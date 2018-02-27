@@ -7,8 +7,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ deleteCart, updateCart }, dispatch);
 }
 
-const mapStateToProps = (state) => (
-  { shoppingCart: state.ShoppingCartReducer.shoppingCart }
-);
-
-export default connect(mapStateToProps, mapDispatchToProps)(ItemForCart);
+export default connect(null, mapDispatchToProps)(ItemForCart);

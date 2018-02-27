@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/yumeishih/react-shopping-cart#readme",
   "dependencies": {
+    "lodash": "^4.17.5",
     "mongoose": "^5.0.6",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",

@@ -19,15 +19,13 @@ export default class ItemForCart extends Component {
   updateQty(qty) {
     const newTotal = this.props.item.price * Number(qty);
     this.setState({ total: newTotal });
-    const { item, shoppingCart } = this.props;
-    const index = shoppingCart.map((element) => { return element.itemID; }).indexOf(item.itemID);
-    this.props.updateCart(this.props.item, qty, index);
+    const { item } = this.props;
+    this.props.updateCart(item, qty);
   }
 
   deleteCartClick() {
-    const { item, shoppingCart } = this.props;
-    const index = shoppingCart.map((element) => { return element.itemID; }).indexOf(item.itemID);
-    this.props.deleteCart(item, index);
+    const { item } = this.props;
+    this.props.deleteCart(item);
   }
 
   render() {
@@ -60,14 +58,6 @@ ItemForCart.propTypes = {
     price: PropTypes.number,
     qty: PropTypes.number
   }),
-  shoppingCart: PropTypes.arrayOf(PropTypes.shape({
-    itemID: PropTypes.string,
-    itemImg: PropTypes.string,
-    itemName: PropTypes.string,
-    describe: PropTypes.string,
-    price: PropTypes.number,
-    qty: PropTypes.number
-  })).isRequired,
   updateCart: PropTypes.func.isRequired,
   deleteCart: PropTypes.func.isRequired
 };
