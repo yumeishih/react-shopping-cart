@@ -23,6 +23,15 @@ describe('/containers/content', () => {
   it('Props exist: item', () => {
     expect(wrapper.find('[item]')).to.exist;
   });
+  it('Props exist: shoppingCart', () => {
+    expect(wrapper.find('[shoppingCart]')).to.exist;
+  });
+  it('Props exist: addToCart', () => {
+    expect(wrapper.find('[addToCart]')).to.exist;
+  });
+  it('Props exist: updateCart', () => {
+    expect(wrapper.find('[updateCart]')).to.exist;
+  });
   it('Props exist: fetchItemList', () => {
     expect(wrapper.find('[fetchItemList]')).to.exist;
   });

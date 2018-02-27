@@ -29,4 +29,10 @@ describe('/containers/cart', () => {
   it('Props exist: fetchCart', () => {
     expect(wrapper.find('[fetchCart]')).to.exist;
   });
+  it('Props exist: deleteCart', () => {
+    expect(wrapper.find('[deleteCart]')).to.exist;
+  });
+  it('Props exist: updateCart', () => {
+    expect(wrapper.find('[updateCart]')).to.exist;
+  });
 })
