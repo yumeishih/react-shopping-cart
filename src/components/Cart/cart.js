@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ItemForCart from 'Containers/itemForCart';
+import ItemForCart from 'Components/Cart/itemForCart';
 import calculateTotal from 'Assets/helper/calculateTotal';
 import PropTypes from 'prop-types';
 
@@ -22,10 +22,16 @@ export default class Cart extends Component {
   }
 
   render() {
+    const { deleteCart, updateCart } = this.props;
     return (
       <div className="cart">
         <div className="itemListforCart">
-          {this.props.shoppingCart.map((item) => <ItemForCart key={item.itemID} item={item} />)}
+          {this.props.shoppingCart.map(item => (<ItemForCart
+            key={item.itemID}
+            item={item}
+            deleteCart={deleteCart}
+            updateCart={updateCart}
+          />))}
         </div>
         <h2>Total: {this.state.total}</h2>
       </div>
@@ -42,18 +48,9 @@ Cart.propTypes = {
     price: PropTypes.number,
     qty: PropTypes.number,
     map: PropTypes.func
-  })),
+  })).isRequired,
   fetchCart: PropTypes.func.isRequired,
+  deleteCart: PropTypes.func.isRequired,
+  updateCart: PropTypes.func.isRequired,
   isChanged: PropTypes.bool.isRequired
-};
-
-Cart.defaultProps = {
-  shoppingCart: PropTypes.arrayOf(PropTypes.shape({
-    itemID: '',
-    itemImg: '',
-    itemName: '',
-    describe: '',
-    price: 0,
-    qty: 0
-  })),
 };
