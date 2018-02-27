@@ -12,11 +12,13 @@ Initialize(install the packages in package.json):
 ```sh
 $ npm install
 ```
+
 Run client:
 ```sh
 $ npm run dev
 ```
 url: http://localhost:8080/
+
 Run server:
 ```sh
 $ npm run server
