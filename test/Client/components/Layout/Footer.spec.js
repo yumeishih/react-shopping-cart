@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from 'Components/Layout/footer';
 
-describe('Footer', () => {
+describe('/components/Layout/Footer', () => {
   const wrapper = shallow(<Footer />);
   it('type of footer', () => {
     expect(wrapper.type()).to.equal('footer');

@@ -1,7 +1,7 @@
 import React from 'react';
 import Item from 'Components/ItemsList/item'
 
-describe('/content/Item', () => {
+describe('/components/ItemsList/Item', () => {
   const fakekey = 'fakeitemkey'
   const fakeitem = {
     itemID: 'fakeitem',

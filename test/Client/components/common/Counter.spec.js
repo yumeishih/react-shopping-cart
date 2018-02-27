@@ -1,7 +1,7 @@
 import React from 'react';
 import Counter from 'Components/common/counter';
 
-describe('/common/Counter', () => {
+describe('/components/common/Counter', () => {
   const fakekey = 'fakeitemkey'
   const fakeitem = {
     itemID: 'fakeitem',

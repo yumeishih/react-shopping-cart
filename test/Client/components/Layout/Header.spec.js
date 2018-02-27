@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from 'Components/Layout/header';
 
-describe('Header', () => {
+describe('/components/Layout/Header', () => {
   const wrapper = shallow(<Header />);
   it('type of header', () => {
     expect(wrapper.type()).to.equal('header');

@@ -1,7 +1,7 @@
 import React from 'react';
 import Content from 'Components/ItemsList/content';
 
-describe('Content', () => {
+describe('/components/ItemsList/Content', () => {
   console.log(Content.prototype)
   const fakefecthItemList = spy()
   const fakeitems = []

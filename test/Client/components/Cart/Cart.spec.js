@@ -1,7 +1,7 @@
 import React from 'react';
 import Cart from 'Components/Cart/cart'
 
-describe('Cart', () => {
+describe('/components/Cart/Cart', () => {
   const fakefecthCart = spy()
   const fakeshoppingCart =[]
   const wrapper = shallow(<Cart fecthCart={fakefecthCart} shoppingCart={fakeshoppingCart}/>);

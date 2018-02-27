@@ -1,7 +1,7 @@
 import React from 'react';
 import ItemForCart from 'Components/Cart/itemForCart'
 
-describe('/content/ItemForCart', () => {
+describe('/components/Cart/ItemForCart', () => {
   const fakeitem = {
     itemID: 'fakeitem',
     itemImg: './src/imgs/items/fakeitem.jpg',
