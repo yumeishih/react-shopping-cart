@@ -1,4 +1,4 @@
-import { ADD_TO_CART_SUCCESS, UPDATE_CART_SUCCESS, DELETE_CART_SUCCESS, FECTH_CART_SUCCESS } from '../actions/index';
+import { ADD_TO_CART_SUCCESS, UPDATE_CART_SUCCESS, DELETE_CART_SUCCESS, FETCH_CART_SUCCESS } from '../actions/index';
 
 export default function (state = {
   shoppingCart: [],
@@ -14,7 +14,7 @@ export default function (state = {
     case DELETE_CART_SUCCESS: {
       return { ...state, isChanged: action.isChanged };
     }
-    case FECTH_CART_SUCCESS: {
+    case FETCH_CART_SUCCESS: {
       return { ...state, shoppingCart: action.payload, isChanged: action.isChanged };
     }
     default: {

@@ -3,9 +3,9 @@ import Content from 'Components/ItemsList/content';
 
 describe('/components/ItemsList/Content', () => {
   console.log(Content.prototype)
-  const fakefecthItemList = spy()
+  const fakefetchItemList = spy()
   const fakeitems = []
-  const wrapper = shallow(<Content fecthItemList = {fakefecthItemList} items={fakeitems}/>);
+  const wrapper = shallow(<Content fetchItemList = {fakefetchItemList} items={fakeitems}/>);
   it('type of Content', () => {
     expect(wrapper.type()).to.equal('div');
   });
@@ -15,7 +15,7 @@ describe('/components/ItemsList/Content', () => {
   it('has children has class name of "itemList"', () => {
     expect(wrapper.props().children.props.className).to.equal('itemList');
   });
-  it('fecthItemList has been called', () => {
-    expect(fakefecthItemList.called).to.equal(true)
+  it('fetchItemList has been called', () => {
+    expect(fakefetchItemList.called).to.equal(true)
   });
 });

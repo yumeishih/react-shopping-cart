@@ -26,7 +26,7 @@ describe('/containers/cart', () => {
   it('Props exist: isChanged', () => {
     expect(wrapper.find('[isChanged]')).to.exist;
   });
-  it('Props exist: fecthCart', () => {
-    expect(wrapper.find('[fecthCart]')).to.exist;
+  it('Props exist: fetchCart', () => {
+    expect(wrapper.find('[fetchCart]')).to.exist;
   });
 })

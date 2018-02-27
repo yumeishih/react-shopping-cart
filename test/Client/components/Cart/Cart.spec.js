@@ -2,9 +2,9 @@ import React from 'react';
 import Cart from 'Components/Cart/cart'
 
 describe('/components/Cart/Cart', () => {
-  const fakefecthCart = spy()
+  const fakefetchCart = spy()
   const fakeshoppingCart =[]
-  const wrapper = shallow(<Cart fecthCart={fakefecthCart} shoppingCart={fakeshoppingCart}/>);
+  const wrapper = shallow(<Cart fetchCart={fakefetchCart} shoppingCart={fakeshoppingCart}/>);
   it('type of Cart', () => {
     expect(wrapper.type()).to.equal('div');
   });
@@ -19,7 +19,7 @@ describe('/components/Cart/Cart', () => {
     expect(wrapper.childAt(1).type()).to.equal('h2');
     expect(wrapper.childAt(1).text()).to.equal(`Total: 0`)
   });
-  it('fecthCart has been called', () => {
-    expect(fakefecthCart.called).to.equal(true)
+  it('fetchCart has been called', () => {
+    expect(fakefetchCart.called).to.equal(true)
   });
 });

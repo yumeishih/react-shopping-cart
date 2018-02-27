@@ -1,26 +1,26 @@
 import { CALL_API } from 'Src/middleware/api';
 
-export const FECTH_ITEMLIST_SUCCESS = 'FECTH_ITEMLIST_SUCCESS';
-export const FECTH_ITEMLIST_FAILED = 'FECTH_ITEMLIST_FAILED';
-export const fecthItemList = () => ({
+export const FETCH_ITEMLIST_SUCCESS = 'FETCH_ITEMLIST_SUCCESS';
+export const FETCH_ITEMLIST_FAILED = 'FETCH_ITEMLIST_FAILED';
+export const fetchItemList = () => ({
   [CALL_API]: {
     endpoint: 'itemlist',
     props: {
       method: 'GET'
     },
-    types: [FECTH_ITEMLIST_SUCCESS, FECTH_ITEMLIST_FAILED],
+    types: [FETCH_ITEMLIST_SUCCESS, FETCH_ITEMLIST_FAILED],
   }
 });
 
-export const FECTH_CART_SUCCESS = 'FECTH_CART_SUCCESS';
-export const FECTH_CART_FAILED = 'FECTH_CART_FAILED';
-export const fecthCart = () => ({
+export const FETCH_CART_SUCCESS = 'FETCH_CART_SUCCESS';
+export const FETCH_CART_FAILED = 'FETCH_CART_FAILED';
+export const fetchCart = () => ({
   [CALL_API]: {
     endpoint: 'cart',
     props: {
       method: 'GET'
     },
-    types: [FECTH_CART_SUCCESS, FECTH_CART_FAILED],
+    types: [FETCH_CART_SUCCESS, FETCH_CART_FAILED],
     isChanged: false,
   }
 });

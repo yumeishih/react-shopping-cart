@@ -1,10 +1,10 @@
-import { FECTH_ITEMLIST_SUCCESS } from '../actions/index';
+import { FETCH_ITEMLIST_SUCCESS } from '../actions/index';
 
 export default function (state = {
   items: []
 }, action) {
   switch (action.type) {
-    case FECTH_ITEMLIST_SUCCESS: {
+    case FETCH_ITEMLIST_SUCCESS: {
       return { ...state, items: action.payload };
     }
     default: return state;

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 export default class Content extends Component {
   componentDidMount() {
-    this.props.fecthItemList();
+    this.props.fetchItemList();
   }
   render() {
     return (
@@ -25,7 +25,7 @@ Content.propTypes = {
     price: PropTypes.number,
     map: PropTypes.func
   })),
-  fecthItemList: PropTypes.func.isRequired,
+  fetchItemList: PropTypes.func.isRequired,
 };
 
 Content.defaultProps = {

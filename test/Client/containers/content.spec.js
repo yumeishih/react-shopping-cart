@@ -23,8 +23,8 @@ describe('/containers/content', () => {
   it('Props exist: item', () => {
     expect(wrapper.find('[item]')).to.exist;
   });
-  it('Props exist: fecthItemList', () => {
-    expect(wrapper.find('[fecthItemList]')).to.exist;
+  it('Props exist: fetchItemList', () => {
+    expect(wrapper.find('[fetchItemList]')).to.exist;
   });
 
 })

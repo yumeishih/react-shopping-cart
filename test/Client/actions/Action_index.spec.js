@@ -12,26 +12,26 @@ describe('Actions', () => {
     price: 10000,
     qty:1
   }
-  it('fecthItemList', () => {
+  it('fetchItemList', () => {
     const expectedAction = {
       endpoint: 'itemlist',
       props: {
         method: 'GET'
       },
-      types: [ActionsType.FECTH_ITEMLIST_SUCCESS, ActionsType.FECTH_ITEMLIST_FAILED],
+      types: [ActionsType.FETCH_ITEMLIST_SUCCESS, ActionsType.FETCH_ITEMLIST_FAILED],
     }
-    expect(Actions.fecthItemList()[CALL_API]).to.deep.equal(expectedAction);
+    expect(Actions.fetchItemList()[CALL_API]).to.deep.equal(expectedAction);
   });
-  it('fecthCart', () => {
+  it('fetchCart', () => {
     const expectedAction = {
       endpoint: 'cart',
       props: {
         method: 'GET'
       },
-      types: [ActionsType.FECTH_CART_SUCCESS, ActionsType.FECTH_CART_FAILED],
+      types: [ActionsType.FETCH_CART_SUCCESS, ActionsType.FETCH_CART_FAILED],
       isChanged: false,
     }
-    expect(Actions.fecthCart()[CALL_API]).to.deep.equal(expectedAction);
+    expect(Actions.fetchCart()[CALL_API]).to.deep.equal(expectedAction);
   });
   it('addToCart', () => {
     const expectedAction = {

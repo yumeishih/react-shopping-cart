@@ -15,10 +15,10 @@ describe('Reducers/itemsReducers', () => {
       items: []
     })
   });
-  it('FECTH_ITEMLIST_SUCCESS', () => {
+  it('FETCH_ITEMLIST_SUCCESS', () => {
 
     const res = itemsReducer(undefined, {
-      type: 'FECTH_ITEMLIST_SUCCESS',
+      type: 'FETCH_ITEMLIST_SUCCESS',
       payload: fakeitem
     });
     expect(res).to.deep.equal({

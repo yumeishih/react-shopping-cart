@@ -47,9 +47,9 @@ describe('Reducers/shoppingCartReducer', () => {
       isChanged: true
     })
   });
-  it('FECTH_CART_SUCCESS', () => {
+  it('FETCH_CART_SUCCESS', () => {
     const res = shoppingCartReducer(undefined, {
-      type: 'FECTH_CART_SUCCESS',
+      type: 'FETCH_CART_SUCCESS',
       payload: [fakeitem],
       isChanged: false
     });

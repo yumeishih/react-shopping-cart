@@ -10,14 +10,14 @@ export default class Cart extends Component {
     this.state = {
       total: 0
     };
-    props.fecthCart();
+    props.fetchCart();
   }
 
   componentWillReceiveProps(nextProps) {
     const total = calculateTotal(nextProps.shoppingCart);
     this.setState({ total });
     if (nextProps.isChanged) {
-      nextProps.fecthCart();
+      nextProps.fetchCart();
     }
   }
 
@@ -43,7 +43,7 @@ Cart.propTypes = {
     qty: PropTypes.number,
     map: PropTypes.func
   })),
-  fecthCart: PropTypes.func.isRequired,
+  fetchCart: PropTypes.func.isRequired,
   isChanged: PropTypes.bool.isRequired
 };
 
