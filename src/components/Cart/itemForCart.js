@@ -67,9 +67,9 @@ ItemForCart.propTypes = {
     describe: PropTypes.string,
     price: PropTypes.number,
     qty: PropTypes.number
-  })),
-  updateCart: PropTypes.func,
-  deleteCart: PropTypes.func
+  })).isRequired,
+  updateCart: PropTypes.func.isRequired,
+  deleteCart: PropTypes.func.isRequired
 };
 
 ItemForCart.defaultProps = {
@@ -81,14 +81,4 @@ ItemForCart.defaultProps = {
     price: 0,
     qty: 0
   }),
-  shoppingCart: PropTypes.arrayOf(PropTypes.shape({
-    itemID: '',
-    itemImg: '',
-    itemName: '',
-    describe: '',
-    price: 0,
-    qty: 0
-  })),
-  updateCart: null,
-  deleteCart: null
 };

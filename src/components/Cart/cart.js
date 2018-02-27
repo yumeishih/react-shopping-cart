@@ -43,8 +43,8 @@ Cart.propTypes = {
     qty: PropTypes.number,
     map: PropTypes.func
   })),
-  fecthCart: PropTypes.func,
-  isChanged: PropTypes.bool
+  fecthCart: PropTypes.func.isRequired,
+  isChanged: PropTypes.bool.isRequired
 };
 
 Cart.defaultProps = {
@@ -56,6 +56,4 @@ Cart.defaultProps = {
     price: 0,
     qty: 0
   })),
-  fecthCart: null,
-  isChanged: false
 };

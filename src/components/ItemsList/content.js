@@ -25,7 +25,7 @@ Content.propTypes = {
     price: PropTypes.number,
     map: PropTypes.func
   })),
-  fecthItemList: PropTypes.func,
+  fecthItemList: PropTypes.func.isRequired,
 };
 
 Content.defaultProps = {
@@ -36,5 +36,4 @@ Content.defaultProps = {
     describe: '',
     price: 0,
   })),
-  fecthItemList: null,
 };
