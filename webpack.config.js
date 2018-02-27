@@ -16,6 +16,7 @@ module.exports = {
         Containers: path.resolve(__dirname, 'src/containers/'),
         Actions: path.resolve(__dirname, 'src/actions/'),
         Assets: path.resolve(__dirname, 'src/assets/'),
+        Reducers: path.resolve(__dirname, 'src/reducers/'),
       },
       extensions: ['.js', '.jsx']
     },
